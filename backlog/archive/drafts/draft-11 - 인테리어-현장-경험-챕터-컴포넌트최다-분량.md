@@ -1,0 +1,15 @@
+---
+id: DRAFT-11
+title: 인테리어 현장 경험 챕터 컴포넌트(최다 분량)
+status: Draft
+assignee: []
+created_date: '2026-09-10 14:37'
+labels: []
+dependencies: []
+---
+
+## Description
+
+<!-- SECTION:DESCRIPTION:BEGIN -->
+||materialsHandled/craftDetails/lessonsCarriedForward 렌더링. AC: 가장 풍부한 챕터로 다른 챕터 대비 섹션 수 많음.
+<!-- SECTION:DESCRIPTION:END -->

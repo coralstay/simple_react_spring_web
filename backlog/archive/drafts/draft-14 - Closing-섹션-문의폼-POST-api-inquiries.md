@@ -1,0 +1,15 @@
+---
+id: DRAFT-14
+title: Closing 섹션 + 문의폼 + POST /api/inquiries
+status: Draft
+assignee: []
+created_date: '2026-09-10 14:37'
+labels: []
+dependencies: []
+---
+
+## Description
+
+<!-- SECTION:DESCRIPTION:BEGIN -->
+||폼 제출시 백엔드 저장. AC: 제출 후 DB 확인.
+<!-- SECTION:DESCRIPTION:END -->
