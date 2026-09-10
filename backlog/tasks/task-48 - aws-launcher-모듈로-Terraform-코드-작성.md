@@ -1,9 +1,10 @@
 ---
 id: TASK-48
-title: aws-launcher 모듈로 Terraform 코드 작성
+title: 직접 Terraform으로 AWS 인프라 구현(aws-launcher 미사용)
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:21'
+updated_date: '2026-09-10 15:41'
 labels: []
 dependencies: []
 ---
@@ -11,7 +12,5 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-  vpc/ec2/route53/secrets-manager/iam-github-oidc 조합, live/simple-react-spring-web. AC: tflint/checkov/trivy 정적분석 통과(apply는 안함).
-
-참고 문서: docs/plans/plan-v1.md
+infra/ 디렉토리에 EC2 단일 인스턴스 배포용 Terraform을 직접 작성한다. 외부 aws-launcher 저장소 모듈을 재사용하지 않는다. 기본 VPC 사용, 별도 VPC 생성 안 함. 참고: docs/plans/plan-v2.md
 <!-- SECTION:DESCRIPTION:END -->
