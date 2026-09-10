@@ -4,7 +4,9 @@ title: 프런트 로그인 페이지+보호라우트
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:21'
+updated_date: '2026-09-10 23:10'
 labels: []
+milestone: m-2
 dependencies: []
 ---
 

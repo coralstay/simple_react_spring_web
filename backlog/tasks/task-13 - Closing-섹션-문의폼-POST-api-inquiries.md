@@ -4,7 +4,9 @@ title: Closing 섹션 + 문의폼 + POST /api/inquiries
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:21'
+updated_date: '2026-09-10 23:10'
 labels: []
+milestone: m-1
 dependencies: []
 ---
 

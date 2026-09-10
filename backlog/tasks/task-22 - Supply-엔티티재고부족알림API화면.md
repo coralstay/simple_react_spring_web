@@ -4,7 +4,9 @@ title: Supply 엔티티+재고부족알림+API+화면
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:21'
+updated_date: '2026-09-10 23:10'
 labels: []
+milestone: m-2
 dependencies: []
 ---
 

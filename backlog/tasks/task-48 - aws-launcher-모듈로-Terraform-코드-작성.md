@@ -4,8 +4,9 @@ title: 직접 Terraform으로 AWS 인프라 구현(aws-launcher 미사용)
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:21'
-updated_date: '2026-09-10 15:41'
+updated_date: '2026-09-10 23:10'
 labels: []
+milestone: m-6
 dependencies: []
 ---
 

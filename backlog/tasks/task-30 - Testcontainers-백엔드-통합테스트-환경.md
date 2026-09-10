@@ -4,7 +4,9 @@ title: Testcontainers 백엔드 통합테스트 환경
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:21'
+updated_date: '2026-09-10 23:10'
 labels: []
+milestone: m-3
 dependencies: []
 ---
 

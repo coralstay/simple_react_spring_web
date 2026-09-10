@@ -8,3 +8,4 @@
 |------|------|------|------|
 | v1 | plan-v1.md | 유효(기반) | 최초 승인본(불변식 포함) |
 | v2 | plan-v2.md | 유효(델타) | 배포: aws-launcher 미사용 → 이 저장소 `infra/`에 직접 Terraform 구현 |
+| v3 | plan-v3.md | 유효(델타) | 마일스톤 단위로 simple-web-aplication-reviewer 세션 리뷰 게이트 추가 |

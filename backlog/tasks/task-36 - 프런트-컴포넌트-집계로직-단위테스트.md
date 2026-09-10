@@ -4,7 +4,9 @@ title: 프런트 컴포넌트/집계로직 단위테스트
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:21'
+updated_date: '2026-09-10 23:10'
 labels: []
+milestone: m-3
 dependencies: []
 ---
 

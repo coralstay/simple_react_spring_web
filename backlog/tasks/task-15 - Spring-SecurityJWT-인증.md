@@ -4,7 +4,9 @@ title: Spring Security+JWT 인증
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:21'
+updated_date: '2026-09-10 23:10'
 labels: []
+milestone: m-2
 dependencies: []
 ---
 

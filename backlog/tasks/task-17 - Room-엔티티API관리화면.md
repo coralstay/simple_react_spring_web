@@ -4,7 +4,9 @@ title: Room 엔티티+API+관리화면
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:21'
+updated_date: '2026-09-10 23:10'
 labels: []
+milestone: m-2
 dependencies: []
 ---
 

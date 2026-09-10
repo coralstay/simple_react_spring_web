@@ -4,7 +4,9 @@ title: 스크롤 애니메이션 및 반응형 정리
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:21'
+updated_date: '2026-09-10 23:10'
 labels: []
+milestone: m-1
 dependencies: []
 ---
 

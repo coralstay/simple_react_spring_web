@@ -4,7 +4,9 @@ title: EBS 데이터 백업 크론
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:21'
+updated_date: '2026-09-10 23:10'
 labels: []
+milestone: m-6
 dependencies: []
 ---
 
