@@ -4,10 +4,12 @@ title: '백엔드 Spring Boot(Gradle,Java25) 스캐폴딩'
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:21'
-updated_date: '2026-09-10 23:10'
+updated_date: '2026-09-10 23:37'
 labels: []
 milestone: m-0
 dependencies: []
+documentation:
+  - doc-2
 ---
 
 ## Description
