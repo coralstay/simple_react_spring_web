@@ -1,9 +1,10 @@
 ---
 id: TASK-4.1
 title: .claude-rails.json 작성
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-09-10 15:30'
+updated_date: '2026-09-10 23:17'
 labels: []
 dependencies: []
 modified_files:
