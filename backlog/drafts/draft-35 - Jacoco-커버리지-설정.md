@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||pre_push_coverage_check 훅 대응. AC: 커버리지 리포트 생성.
+  pre_push_coverage_check 훅 대응. AC: 커버리지 리포트 생성.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

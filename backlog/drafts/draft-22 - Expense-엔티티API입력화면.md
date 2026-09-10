@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||세탁비 포함 카테고리. AC: CRUD 동작.
+  세탁비 포함 카테고리. AC: CRUD 동작.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

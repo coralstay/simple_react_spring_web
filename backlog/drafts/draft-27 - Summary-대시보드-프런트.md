@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||통계카드+추이그래프. AC: 데이터 반영 확인.
+  통계카드+추이그래프. AC: 데이터 반영 확인.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||점유율/순이익/ADR/노쇼율, 쿼리시점 집계. AC: 월별 파라미터로 정확한 수치 반환.
+  점유율/순이익/ADR/노쇼율, 쿼리시점 집계. AC: 월별 파라미터로 정확한 수치 반환.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

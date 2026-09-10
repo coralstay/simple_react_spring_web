@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||JUnit5+Mockito. AC: 커버리지 확보.
+  JUnit5+Mockito. AC: 커버리지 확보.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

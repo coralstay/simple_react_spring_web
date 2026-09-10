@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||REPORTED~RESOLVED, Expense 연결. AC: 라이프사이클 전이 확인.
+  REPORTED~RESOLVED, Expense 연결. AC: 라이프사이클 전이 확인.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

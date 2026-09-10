@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||PENDING~COMPLETED 상태. AC: 상태 전이 CRUD 테스트.
+  PENDING~COMPLETED 상태. AC: 상태 전이 CRUD 테스트.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

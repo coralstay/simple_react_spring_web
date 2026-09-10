@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||onSiteLessons 카드 렌더링. AC: 데이터 바인딩 확인.
+  onSiteLessons 카드 렌더링. AC: 데이터 바인딩 확인.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

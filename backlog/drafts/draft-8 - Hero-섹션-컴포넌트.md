@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||풀블리드 사진+헤드라인+요약지표+CTA. AC: 반응형 확인.
+  풀블리드 사진+헤드라인+요약지표+CTA. AC: 반응형 확인.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

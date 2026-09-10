@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||renovation 전/후 이미지, 비용, 기간 표시. AC: RenovationProject API 연동.
+  renovation 전/후 이미지, 비용, 기간 표시. AC: RenovationProject API 연동.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||lint/test/build(프런트+백엔드). AC: PR에서 통과/실패 확인.
+  lint/test/build(프런트+백엔드). AC: PR에서 통과/실패 확인.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

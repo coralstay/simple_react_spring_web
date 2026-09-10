@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||btree_gist 확장 활성화 포함. AC: docker compose up -d로 로컬 Postgres 기동 확인.
+  btree_gist 확장 활성화 포함. AC: docker compose up -d로 로컬 Postgres 기동 확인.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||spring.threads.virtual.enabled=true, 풀사이즈 유지 근거 문서화. AC: 기동 확인.
+  spring.threads.virtual.enabled=true, 풀사이즈 유지 근거 문서화. AC: 기동 확인.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

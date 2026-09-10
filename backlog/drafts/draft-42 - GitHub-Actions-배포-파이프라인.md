@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||OIDC 인증, ECR 푸시, SSH 배포. AC: 실제 AWS 인증 연결은 마지막 task로 보류.
+  OIDC 인증, ECR 푸시, SSH 배포. AC: 실제 AWS 인증 연결은 마지막 task로 보류.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

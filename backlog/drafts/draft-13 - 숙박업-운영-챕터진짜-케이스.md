@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||spaceDecisions/metrics/reviewHighlights 렌더링. AC: 통계 카드 표시.
+  spaceDecisions/metrics/reviewHighlights 렌더링. AC: 통계 카드 표시.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

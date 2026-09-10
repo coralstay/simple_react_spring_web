@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||react-router 도입, /dashboard/* 보호. AC: 비로그인 접근시 리다이렉트.
+  react-router 도입, /dashboard/* 보호. AC: 비로그인 접근시 리다이렉트.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

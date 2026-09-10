@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||Hibernate Statistics로 고정범위 검증. AC: 임계치 초과시 실패.
+  Hibernate Statistics로 고정범위 검증. AC: 임계치 초과시 실패.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

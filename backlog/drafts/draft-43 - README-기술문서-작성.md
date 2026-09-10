@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||아키텍처 다이어그램/기술선택 이유/테스트전략/스크린샷/책 인용 정리. AC: 채용담당자가 판단과정을 이해할 수 있음.
+  아키텍처 다이어그램/기술선택 이유/테스트전략/스크린샷/책 인용 정리. AC: 채용담당자가 판단과정을 이해할 수 있음.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

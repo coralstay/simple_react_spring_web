@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||jsdom에 IO 모킹 추가. AC: useInView 테스트 통과.
+  jsdom에 IO 모킹 추가. AC: useInView 테스트 통과.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

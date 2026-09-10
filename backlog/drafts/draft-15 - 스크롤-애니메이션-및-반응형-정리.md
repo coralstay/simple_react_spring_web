@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||react-spring 기반 useInView 리빌, 모바일 폭 레이아웃 점검. AC: 실제 브라우저로 전체 스크롤 확인.
+  react-spring 기반 useInView 리빌, 모바일 폭 레이아웃 점검. AC: 실제 브라우저로 전체 스크롤 확인.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

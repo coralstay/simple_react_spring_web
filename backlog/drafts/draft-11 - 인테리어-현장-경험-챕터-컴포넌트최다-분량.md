@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||materialsHandled/craftDetails/lessonsCarriedForward 렌더링. AC: 가장 풍부한 챕터로 다른 챕터 대비 섹션 수 많음.
+  materialsHandled/craftDetails/lessonsCarriedForward 렌더링. AC: 가장 풍부한 챕터로 다른 챕터 대비 섹션 수 많음.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

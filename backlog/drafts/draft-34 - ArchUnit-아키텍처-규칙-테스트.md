@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||계층 의존방향, 순환참조 금지. AC: 규칙 위반시 실패.
+  계층 의존방향, 순환참조 금지. AC: 규칙 위반시 실패.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||순수함수로 분리한 로직 우선 테스트. AC: 커버리지 확보.
+  순수함수로 분리한 로직 우선 테스트. AC: 커버리지 확보.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||vpc/ec2/route53/secrets-manager/iam-github-oidc 조합, live/simple-react-spring-web. AC: tflint/checkov/trivy 정적분석 통과(apply는 안함).
+  vpc/ec2/route53/secrets-manager/iam-github-oidc 조합, live/simple-react-spring-web. AC: tflint/checkov/trivy 정적분석 통과(apply는 안함).
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

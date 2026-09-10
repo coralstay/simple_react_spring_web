@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||폼 제출시 백엔드 저장. AC: 제출 후 DB 확인.
+  폼 제출시 백엔드 저장. AC: 제출 후 DB 확인.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

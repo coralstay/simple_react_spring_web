@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||btree_gist, daterange '[)' 반개구간, room_id 포함. 409 변환. AC: 겹침 시도시 409.
+  btree_gist, daterange '[)' 반개구간, room_id 포함. 409 변환. AC: 겹침 시도시 409.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->

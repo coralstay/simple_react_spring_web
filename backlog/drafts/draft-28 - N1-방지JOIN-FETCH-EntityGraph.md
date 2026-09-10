@@ -11,7 +11,7 @@ dependencies: []
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-||Room 연관 목록조회 최적화. AC: 쿼리수 테스트 통과.
+  Room 연관 목록조회 최적화. AC: 쿼리수 테스트 통과.
 
 참고 문서: docs/plans/plan-v1.md
 <!-- SECTION:DESCRIPTION:END -->
