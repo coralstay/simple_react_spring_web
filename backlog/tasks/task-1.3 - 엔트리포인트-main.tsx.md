@@ -1,9 +1,10 @@
 ---
 id: TASK-1.3
 title: 엔트리포인트 main.tsx
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-09-10 15:30'
+updated_date: '2026-09-10 23:15'
 labels: []
 dependencies: []
 modified_files:
