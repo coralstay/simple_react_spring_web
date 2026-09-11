@@ -4,10 +4,12 @@ title: Hero.tsx
 status: Done
 assignee: []
 created_date: '2026-09-10 15:31'
-updated_date: '2026-09-11 14:43'
+updated_date: '2026-09-11 14:44'
 labels: []
 milestone: m-1
 dependencies: []
+documentation:
+  - doc-3
 modified_files:
   - frontend/src/sections/Hero.tsx
 parent_task_id: TASK-7
