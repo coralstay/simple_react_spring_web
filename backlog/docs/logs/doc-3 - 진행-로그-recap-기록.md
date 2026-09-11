@@ -3,7 +3,7 @@ id: doc-3
 title: 진행 로그 (recap 기록)
 type: other
 created_date: '2026-09-11 04:18'
-updated_date: '2026-09-11 14:44'
+updated_date: '2026-09-11 20:44'
 ---
 # 진행 로그 (recap 기록)
 
@@ -53,3 +53,19 @@ updated_date: '2026-09-11 14:44'
 - backlog: TASK-7.1 AC #1 체크, Final Summary 기록, 상태 Done.
 - PR: `task/TASK-7.1` 브랜치를 origin에 push 후 **PR #16** 오픈(머지는 하지 않음, 사용자 직접 머지 대기). PR 활동 구독(subscribe_pr_activity) 완료.
 - 이번 실행에서는 milestone 전환을 하지 않음(m-1은 여전히 다수 To Do 잔여) — 다음 크론 실행은 m-1의 다른 미구현 leaf task 중 하나를 이어서 처리.
+## 2026-09-11 (스케줄 실행) — TASK-10.2 구현
+- 실행 전 상태 확인: `git fetch origin` 결과 로컬/origin/main 모두 커밋 `21aa970d25411eab501647f2daf9ed68742a10f5`에서 최신, 뒤처짐 없음(이 실행 중 재확인 시점 포함 2회 fetch, 변동 없음).
+- `scripts/setup-dev-env.sh` 실행(`gitformat.taskPrefix=TASK` 설정 확인).
+- docs/plans/README.md 버전 표(v1~v12)는 실제 docs/plans/plan-v*.md 파일 목록과 일치(불일치 없음). 열린 PR #15가 미병합 `plan-v13.md`를 추가 중이나 main엔 아직 반영 안 됨 — 이번 실행에서 건드리지 않음.
+- 열린 PR 9개 확인(모두 head/base가 현재 main `21aa970d25411eab501647f2daf9ed68742a10f5` 기준으로 미병합): #21(TASK-13.3 Inquiry.java), #20(TASK-14.2 useScrollProgress), #19(TASK-14.1 useInView), #18(TASK-9.1 ConstructionChapter), #17(TASK-8.1 Intro), #16(TASK-7.1 Hero), #15(fix/TASK-13 fetch·pull 규칙, plan-v13), #14(fix/TASK-15.1 SecurityConfig 재작업), #12(TASK-5.2 더미 콘텐츠 JSON) — 전부 재구현 대상에서 제외.
+- `backlog milestone list --plain` 기준 m-0(M1) Done, 현재 마일스톤 m-1(M2 공개 케이스 스터디 페이지, 착수 시점 1/31 done).
+- 후보 leaf 중 TASK-6.x(CaseStudyService가 참조할 JSON은 TASK-5.2/PR #12 미병합)와 TASK-13.3/13.4/13.5(Inquiry 엔티티 체인, PR #21 미병합) 계열은 선행 파일이 main에 없어 제외. TASK-13.2(ContactForm)도 POST /api/inquiries 백엔드 미병합이라 보류.
+- 선택한 leaf task: **TASK-10.2 — MaterialsHandled.tsx**(부모 TASK-10 "인테리어 현장 경험 챕터 컴포넌트(최다 분량)", 마일스톤 m-1 확인 완료). dependencies 없음, 열린 PR 없음, `frontend/src/content/types.ts`의 `MaterialHandled` 타입에만 의존(이미 main에 존재) — 독립 구현 가능. TASK-10.1(InteriorChapter.tsx, 컨테이너)은 10.2~10.4 서브피스를 조합할 것으로 보여 이번 실행 대상에서 제외(선행 필요).
+- **구현은 plan-v1 불변식 #2를 준수해 서브에이전트에 위임**(이전 TASK-9.1 실행의 프로세스 이탈을 재발하지 않음). 서브에이전트에게 leaf task + 부모 task(plan-v8) + ConstructionChapter.tsx 선례 컨벤션을 프롬프트에 포함해 전달.
+- 구현: `frontend/src/sections/chapters/MaterialsHandled.tsx` 신규 생성(파일 1개) — `MaterialHandled[]` props로 이미지(lazy)+자재명+배운 점 카드 그리드 렌더링, ConstructionChapter.tsx와 동일한 inline CSSProperties/clamp()/auto-fit grid/wordBreak:keep-all 컨벤션.
+- 검증(서브에이전트 보고 + 오케스트레이터 재검증 모두 확인): `pnpm lint`(oxlint) exit 0, `pnpm test`(vitest --passWithNoTests) exit 0, `npx tsc -b --force` 결과 MaterialsHandled.tsx 관련 오류 0건(vite.config.ts 기존 TS2769만 재현, Hero/Intro/ConstructionChapter 선례와 동일한 leaf 범위 밖 기존 이슈).
+- 커밋: `90cf2af7078fe64224a58983312204bbc1582222`([feat][frontend] add MaterialsHandled chapter cards, 서브에이전트 작성) — TASK Done 처리 커밋은 이 recap 커밋에 이어서 별도로 기록(Task-Id/Tokens-Used/Tool-Calls 트레일러 포함).
+- 서브에이전트 사용량: subagent_tokens 59313, tool_uses 14 (agentId aaf5a9fe277fa5d19) — Done 커밋 트레일러에 반영.
+- backlog: TASK-10.2 AC #1 체크, Final Summary 기록, 상태 Done.
+- PR: `task/TASK-10.2` 브랜치를 origin에 push 후 PR 오픈 예정(머지는 하지 않음, 사용자 직접 머지 대기). PR 활동 구독(subscribe_pr_activity) 예정.
+- 이번 실행에서는 마일스톤 전환을 하지 않음(m-1은 여전히 다수 To Do 잔여). 다음 크론 실행은 m-1의 다른 미구현 leaf task(TASK-10.3 CraftDetails.tsx, TASK-10.4 LessonsCarriedForward.tsx, TASK-11.1 BridgeSection.tsx, TASK-12.1 OperationsChapter.tsx, TASK-13.1 Closing.tsx, TASK-14.3 ScrollReveal.tsx 등, 모두 선행 미병합 의존 없음 확인됨) 중 하나를 이어서 처리 권장. TASK-6.x/TASK-13.2~13.5는 각각 PR #12/#21 병합 후 재검토 권장.
