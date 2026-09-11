@@ -4,8 +4,9 @@ title: SecurityConfig.java
 status: Done
 assignee: []
 created_date: '2026-09-10 15:32'
-updated_date: '2026-09-11 05:41'
+updated_date: '2026-09-11 05:36'
 labels: []
+milestone: m-2
 dependencies: []
 modified_files:
   - backend/src/main/java/com/portfolio/auth/SecurityConfig.java
