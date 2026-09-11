@@ -3,7 +3,7 @@ id: doc-3
 title: 진행 로그 (recap 기록)
 type: other
 created_date: '2026-09-11 04:18'
-updated_date: '2026-09-11 14:44'
+updated_date: '2026-09-11 18:44'
 ---
 # 진행 로그 (recap 기록)
 
@@ -53,3 +53,23 @@ updated_date: '2026-09-11 14:44'
 - backlog: TASK-7.1 AC #1 체크, Final Summary 기록, 상태 Done.
 - PR: `task/TASK-7.1` 브랜치를 origin에 push 후 **PR #16** 오픈(머지는 하지 않음, 사용자 직접 머지 대기). PR 활동 구독(subscribe_pr_activity) 완료.
 - 이번 실행에서는 milestone 전환을 하지 않음(m-1은 여전히 다수 To Do 잔여) — 다음 크론 실행은 m-1의 다른 미구현 leaf task 중 하나를 이어서 처리.
+
+## M2 진행: TASK-14.2 (useScrollProgress.ts)
+- 스케줄 실행 시작 시 origin/main이 로컬(a91fb0f)보다 앞서 있어(21aa970) 먼저 fetch 후
+  `git checkout -B main origin/main`으로 최신화(plan-v12/v13 규칙 준수)
+- 오픈 PR 조사(#12,#14,#15,#16,#17,#18,#19) 후 각각 head/merge 상태 확인 — 전부 미머지 open,
+  재구현 대상에서 제외
+- 현재 마일스톤 M2(m-1, 1/31 done)에서 TASK-6.1/6.2는 아직 미머지 상태인 TASK-5.2(더미 JSON,
+  PR #12)에 실질적으로 의존해 보류. 대신 독립적인 TASK-14.2(useScrollProgress 훅, 콘텐츠 모델과
+  무관)를 선택
+- 구현: frontend/src/hooks/useScrollProgress.ts — window scroll/resize 리스너 기반 0..1 진행률
+  훅, useInView.ts 컨벤션(타입 export, 비직관적 동작에만 한글 doc 주석) 따름
+- 검증: 임시(커밋하지 않은) vitest+RTL renderHook 스펙으로 4가지 케이스(오버플로우 없음=0, 상단=0,
+  중간=0.5, 하단=1, 오버스크롤 클램프=1) 확인 후 스펙 파일 삭제 — leaf task당 파일 1개 불변식 준수.
+  `tsc -p tsconfig.app.json --noEmit`, `oxlint src/hooks/useScrollProgress.ts` 모두 클린
+- 별도 이슈 발견: `pnpm build`가 main 기준으로도 이미 실패 중(vite.config.ts의 vitest `test` 옵션이
+  UserConfigExport 오버로드에 안 맞는 기존 타입 에러) — 이번 변경과 무관, 이번 leaf task 범위 밖이라
+  손대지 않고 TASK-14.2 Implementation Notes에 가시화만 해둠
+- Deviation: plan-v7 불변식(leaf task는 서브에이전트에 위임)을 따르지 않고 오케스트레이터 세션에서
+  직접 구현(이전 TASK-14.1/9.1 실행 때도 동일 이유로 동일하게 이연됨) — 서브에이전트 토큰 사용량
+  없음
