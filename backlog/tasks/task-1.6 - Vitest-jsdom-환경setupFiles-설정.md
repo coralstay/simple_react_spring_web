@@ -4,7 +4,9 @@ title: Vitest jsdom 환경+setupFiles 설정
 status: To Do
 assignee: []
 created_date: '2026-09-11 04:27'
+updated_date: '2026-09-11 05:34'
 labels: []
+milestone: m-0
 dependencies: []
 modified_files:
   - frontend/vite.config.ts
