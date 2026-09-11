@@ -4,8 +4,9 @@ title: .claude-rails.json 작성
 status: Done
 assignee: []
 created_date: '2026-09-10 15:30'
-updated_date: '2026-09-11 04:26'
+updated_date: '2026-09-11 05:36'
 labels: []
+milestone: m-0
 dependencies: []
 documentation:
   - doc-4

@@ -4,13 +4,14 @@ title: claude-rails 프로젝트 설정
 status: Done
 assignee: []
 created_date: '2026-09-10 15:21'
-updated_date: '2026-09-11 04:42'
+updated_date: '2026-09-11 05:32'
 labels: []
 milestone: m-0
 dependencies: []
 documentation:
   - doc-2
   - doc-5
+  - doc-6
 ---
 
 ## Description
