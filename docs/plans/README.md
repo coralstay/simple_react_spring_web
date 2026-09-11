@@ -11,3 +11,4 @@
 | v3 | plan-v3.md | 유효(델타) | 마일스톤 단위로 simple-web-aplication-reviewer 세션 리뷰 게이트 추가 |
 | v4 | plan-v4.md | 유효(델타) | 마일스톤 리뷰 내용을 backlog doc으로 파일 기록하는 규칙 추가 |
 | v5 | plan-v5.md | 유효(델타) | 다음 마일스톤 전 simple-web-application-verify 피드백도 필수 게이트로 추가 |
+| v6 | plan-v6.md | 유효(델타) | 머지는 사용자가 직접(스쿼시 금지) + task Done 커밋에 토큰 사용량 기록 |
