@@ -4,8 +4,9 @@ title: settings.gradle.kts 작성
 status: Done
 assignee: []
 created_date: '2026-09-10 15:30'
-updated_date: '2026-09-10 23:16'
+updated_date: '2026-09-11 05:35'
 labels: []
+milestone: m-0
 dependencies: []
 modified_files:
   - backend/settings.gradle.kts

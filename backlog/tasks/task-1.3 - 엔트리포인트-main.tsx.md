@@ -4,8 +4,9 @@ title: 엔트리포인트 main.tsx
 status: Done
 assignee: []
 created_date: '2026-09-10 15:30'
-updated_date: '2026-09-11 04:27'
+updated_date: '2026-09-11 05:35'
 labels: []
+milestone: m-0
 dependencies: []
 documentation:
   - doc-4

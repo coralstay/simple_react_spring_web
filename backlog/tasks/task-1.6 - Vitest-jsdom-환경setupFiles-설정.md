@@ -6,6 +6,7 @@ assignee: []
 created_date: '2026-09-11 04:27'
 updated_date: '2026-09-11 09:45'
 labels: []
+milestone: m-0
 dependencies: []
 modified_files:
   - frontend/vite.config.ts

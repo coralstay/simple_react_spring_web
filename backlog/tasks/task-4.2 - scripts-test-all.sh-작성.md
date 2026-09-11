@@ -4,8 +4,9 @@ title: scripts/test-all.sh 작성
 status: Done
 assignee: []
 created_date: '2026-09-10 15:31'
-updated_date: '2026-09-11 04:26'
+updated_date: '2026-09-11 05:35'
 labels: []
+milestone: m-0
 dependencies: []
 documentation:
   - doc-4
