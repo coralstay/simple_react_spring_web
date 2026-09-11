@@ -12,3 +12,9 @@
 | v4 | plan-v4.md | 유효(델타) | 마일스톤 리뷰 내용을 backlog doc으로 파일 기록하는 규칙 추가 |
 | v5 | plan-v5.md | 유효(델타) | 다음 마일스톤 전 simple-web-application-verify 피드백도 필수 게이트로 추가 |
 | v6 | plan-v6.md | 유효(델타) | 머지는 사용자가 직접(스쿼시 금지) + task Done 커밋에 토큰 사용량 기록 |
+| v7 | plan-v7.md | 유효(델타) | recap을 backlog doc(doc-3)에 기록, /clear·프롬프트캐싱 정책 명확화 |
+| v8 | plan-v8.md | 유효(델타) | leaf task 구현 전 부모 task+마일스톤(상위 2뎁스) 필수 확인 |
+| v9 | plan-v9.md | 유효(델타) | reviewer M1 코드리뷰(doc-4) 반영: SecurityConfig 선행, jsdom 설정, taskPrefix 스크립트화 |
+| v10 | plan-v10.md | 유효(델타) | 마일스톤 전환: 직전 리뷰 PASS 확인되면 자동 진행, 아니면 대기 |
+| v11 | plan-v11.md | 유효(델타) | backlog --doc은 append가 아니라 set — 항상 기존 링크 포함해서 호출 (필수) |
+| v12 | plan-v12.md | 유효(델타) | 상태 인용 시 브랜치/ref만이 아니라 전체 커밋 해시도 필수 기록. 이미 머지된 PR에 추가 push해도 main엔 반영 안 됨 |

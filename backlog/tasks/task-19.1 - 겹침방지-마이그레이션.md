@@ -4,8 +4,9 @@ title: 겹침방지 마이그레이션
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:32'
-updated_date: '2026-09-11 04:27'
+updated_date: '2026-09-11 05:36'
 labels: []
+milestone: m-2
 dependencies: []
 modified_files:
   - backend/src/main/resources/db/migration/V2__booking_exclude_constraint.sql

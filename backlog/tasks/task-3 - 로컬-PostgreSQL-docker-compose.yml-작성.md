@@ -4,13 +4,14 @@ title: 로컬 PostgreSQL docker-compose.yml 작성
 status: Done
 assignee: []
 created_date: '2026-09-10 15:21'
-updated_date: '2026-09-11 04:42'
+updated_date: '2026-09-11 05:32'
 labels: []
 milestone: m-0
 dependencies: []
 documentation:
   - doc-2
   - doc-4
+  - doc-6
 ---
 
 ## Description

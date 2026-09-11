@@ -4,8 +4,9 @@ title: GitHub 원격 저장소 연결
 status: Done
 assignee: []
 created_date: '2026-09-10 15:21'
-updated_date: '2026-09-11 04:43'
+updated_date: '2026-09-11 05:34'
 labels: []
+milestone: m-0
 dependencies: []
 ---
 
