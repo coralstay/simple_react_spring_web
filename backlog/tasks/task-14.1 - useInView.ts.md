@@ -4,10 +4,12 @@ title: useInView.ts
 status: Done
 assignee: []
 created_date: '2026-09-10 15:31'
-updated_date: '2026-09-11 17:41'
+updated_date: '2026-09-11 17:43'
 labels: []
 milestone: m-1
 dependencies: []
+documentation:
+  - doc-3
 modified_files:
   - frontend/src/hooks/useInView.ts
 parent_task_id: TASK-14

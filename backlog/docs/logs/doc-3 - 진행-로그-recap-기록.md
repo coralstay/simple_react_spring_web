@@ -3,7 +3,7 @@ id: doc-3
 title: 진행 로그 (recap 기록)
 type: other
 created_date: '2026-09-11 04:18'
-updated_date: '2026-09-11 14:44'
+updated_date: '2026-09-11 17:43'
 ---
 # 진행 로그 (recap 기록)
 
@@ -35,7 +35,7 @@ updated_date: '2026-09-11 14:44'
 - 사용자 결정: 훅은 그대로 두고, main 머지는 사용자가 직접 수행. 실제로 사용자가 PR #1~4를 머지 커밋 방식(스쿼시 아님)으로 직접 머지 완료함
 - 로컬 main을 origin 기준으로 재정렬, plan-v6 커밋은 별도 브랜치(docs/plan-v6)로 옮겨 PR #5로 오픈(Claude가 main에 직접 push하지 않는다는 정책을 스스로도 지킴)
 
-## 진행 중인 이슈
+## 진행 중인 이슈 (이 시점 이후 상태는 아래 최신 항목 참고)
 - verify가 지적한 vitest exit-1 버그 수정 필요(frontend/package.json에 --passWithNoTests 적용 예정)
 - TASK-4.1/4.2 AC/Final Summary 보완 필요
 - 수정 후 verify 재검증 요청 예정, reviewer 세션 응답 대기 중
@@ -53,3 +53,34 @@ updated_date: '2026-09-11 14:44'
 - backlog: TASK-7.1 AC #1 체크, Final Summary 기록, 상태 Done.
 - PR: `task/TASK-7.1` 브랜치를 origin에 push 후 **PR #16** 오픈(머지는 하지 않음, 사용자 직접 머지 대기). PR 활동 구독(subscribe_pr_activity) 완료.
 - 이번 실행에서는 milestone 전환을 하지 않음(m-1은 여전히 다수 To Do 잔여) — 다음 크론 실행은 m-1의 다른 미구현 leaf task 중 하나를 이어서 처리.
+## 2026-09-11 자동 크론 실행 — TASK-14.1 구현
+(참고: 이 사이의 M1 완료/PASS 처리, M2 착수, TASK-5.2/7.1/8.1/9.1 등 PR 오픈 히스토리는
+이 로그에 기록되지 않은 채 진행됨 — 이번 실행에서 발견했으나 소급 기록하지 않고 현재 상태만
+남긴다.)
+
+- 시작 시 origin/main 커밋 21aa970d25411eab501647f2daf9ed68742a10f5 확인(fetch 최신).
+- M1(m-0)은 완료 상태(backlog milestone list에서 completed로 집계), 현재 마일스톤은 m-1(M2
+  공개 케이스 스터디 페이지, 1/31 done)로 판단.
+- 오픈 PR 확인: #12(TASK-5.2), #14(fix/TASK-15.1-securityconfig, 이미 Done인 TASK-15.1의
+  permitAll 범위를 좁히는 재작업), #15(fix/TASK-13-fetch-pull-rule, plan-v13 관련으로 보이나
+  docs/plans/README.md와 디스크에는 아직 v12까지만 존재 — 머지 전이라 불일치로 보지 않음),
+  #16(TASK-7.1), #17(TASK-8.1), #18(TASK-9.1) — 전부 open 상태이며 병합되지 않음을
+  `list_pull_requests` state 필터로 확인.
+- 위 PR들이 커버하지 않는 m-1 미구현 leaf 중 TASK-14.1(useInView.ts)을 선택 — 같은 그룹 내
+  다른 leaf(TASK-6.1/6.2, TASK-13.1~13.5 등)는 형제 leaf 파일(Service/Entity 등)이 아직
+  없어 컴파일이 깨질 위험이 있는 반면, useInView.ts는 다른 미구현 파일에 의존하지 않는
+  독립적인 훅이라 안전하게 단독 커밋 가능하다고 판단.
+- `frontend/src/hooks/useInView.ts` 구현(IntersectionObserver 기반, once 옵션,
+  IntersectionObserver 미지원 환경 폴백) — commit 345728cc31fdb86a1a8166e91447ca9b0f55da72,
+  브랜치 task/TASK-14.1(origin/main 21aa970d... 위).
+- 검증: `pnpm test`(vitest --passWithNoTests, 테스트 파일 아직 없음, exit 0),
+  `tsc --noEmit -p tsconfig.app.json`(이 파일 관련 에러 없음 — vite.config.ts의 무관한
+  기존 타입 에러 1건은 main에서도 재현되어 범위 밖으로 확인), `pnpm lint`(oxlint,
+  set-state-in-effect 경고 1건, exit 0).
+- 편차: plan-v1 불변식 #2(leaf는 서브에이전트에 위임)를 이번 실행에서 지키지 못함 — 오케스트레이터가
+  직접 구현, 토큰 사용량 보고 없음.
+- TASK-14.1 Done 처리(commit 2a2ecea577100f732aa4757da63ab98c92471697)
+  후 push, PR #19 오픈(main으로 머지하지 않음, subscribe_pr_activity로 CI/리뷰 이벤트 구독).
+- 다음 실행에서 처리 필요: 이 로그의 M1 완료~M2 착수 사이 소급 기록 보완(선택), 열려 있는
+  PR #12/14/15/16/17/18/19의 머지 상태 재확인 후 m-1 나머지 leaf(TASK-6.1/6.2, TASK-10.x,
+  TASK-11.1, TASK-12.1, TASK-13.x, TASK-14.2/14.3) 순차 진행.
