@@ -1,13 +1,15 @@
 ---
 id: TASK-15.1
 title: SecurityConfig.java
-status: Done
+status: In Progress
 assignee: []
 created_date: '2026-09-10 15:32'
-updated_date: '2026-09-11 05:36'
+updated_date: '2026-09-11 12:12'
 labels: []
 milestone: m-2
 dependencies: []
+documentation:
+  - doc-4
 modified_files:
   - backend/src/main/java/com/portfolio/auth/SecurityConfig.java
 parent_task_id: TASK-15
@@ -15,7 +17,7 @@ parent_task_id: TASK-15
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [x] #1 JWT 필터체인
+- [ ] #1 공개 엔드포인트(GET /api/case-study, POST /api/inquiries)만 인증 없이 허용되고, 그 외 경로는 기본적으로 인증 필요(401/403)
 <!-- AC:END -->
 
 ## Final Summary
