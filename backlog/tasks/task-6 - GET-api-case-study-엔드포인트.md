@@ -4,10 +4,11 @@ title: GET /api/case-study 엔드포인트
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:21'
-updated_date: '2026-09-10 23:10'
+updated_date: '2026-09-11 04:27'
 labels: []
 milestone: m-1
-dependencies: []
+dependencies:
+  - TASK-15.1
 ---
 
 ## Description

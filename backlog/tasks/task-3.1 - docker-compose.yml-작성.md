@@ -4,9 +4,11 @@ title: docker-compose.yml 작성
 status: Done
 assignee: []
 created_date: '2026-09-10 15:30'
-updated_date: '2026-09-10 23:17'
+updated_date: '2026-09-11 04:26'
 labels: []
 dependencies: []
+documentation:
+  - doc-4
 modified_files:
   - docker-compose.yml
 parent_task_id: TASK-3

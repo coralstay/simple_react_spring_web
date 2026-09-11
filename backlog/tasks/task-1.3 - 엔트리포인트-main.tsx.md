@@ -4,9 +4,11 @@ title: 엔트리포인트 main.tsx
 status: Done
 assignee: []
 created_date: '2026-09-10 15:30'
-updated_date: '2026-09-10 23:17'
+updated_date: '2026-09-11 04:27'
 labels: []
 dependencies: []
+documentation:
+  - doc-4
 modified_files:
   - frontend/src/main.tsx
 parent_task_id: TASK-1
@@ -16,6 +18,12 @@ parent_task_id: TASK-1
 <!-- AC:BEGIN -->
 - [x] #1 React 루트 마운트
 <!-- AC:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+정정(reviewer 피드백, doc-4): Final Summary의 'curl localhost:5199 200 확인'은 오기 — 실제 기본 포트는 Vite 기본값 5173.
+<!-- SECTION:NOTES:END -->
 
 ## Final Summary
 
