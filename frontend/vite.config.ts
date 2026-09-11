@@ -14,4 +14,10 @@ export default defineConfig({
       },
     },
   },
+  test: {
+    environment: "jsdom",
+    // 로컬 setup 파일을 따로 두지 않고, @testing-library/jest-dom이 제공하는
+    // vitest 전용 진입점을 바로 참조해 expect에 jest-dom matcher를 확장한다.
+    setupFiles: ["@testing-library/jest-dom/vitest"],
+  },
 });
