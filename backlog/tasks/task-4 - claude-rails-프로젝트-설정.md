@@ -4,12 +4,13 @@ title: claude-rails 프로젝트 설정
 status: Done
 assignee: []
 created_date: '2026-09-10 15:21'
-updated_date: '2026-09-10 23:37'
+updated_date: '2026-09-11 04:42'
 labels: []
 milestone: m-0
 dependencies: []
 documentation:
   - doc-2
+  - doc-5
 ---
 
 ## Description
@@ -23,5 +24,5 @@ documentation:
 ## Final Summary
 
 <!-- SECTION:FINAL_SUMMARY:BEGIN -->
-TASK-4.1(.claude-rails.json)과 TASK-4.2(scripts/test-all.sh)를 각각 leaf 커밋으로 완료. testCommand가 scripts/test-all.sh를 가리키도록 등록했고, 해당 스크립트는 frontend/backend 존재 여부를 확인해 있으면 pnpm test(또는 vitest --run)/gradlew test를 실행하고 없으면 skip 메시지를 출력한다. bash scripts/test-all.sh 실행 결과 exit 0으로 정상 동작 확인(현재 worktree엔 frontend/backend 미존재, 둘 다 skip).
+최초 Done 처리 시 test-all.sh 검증이 frontend/backend가 존재하지 않는 워크트리에서 이뤄져 트리비얼하게 exit 0이 나온 것이었음(verify 세션, doc-2 참고). 실제 통합 상태에서는 frontend vitest가 '테스트 없음'을 실패로 처리해 exit 1 — 이 버그 자체는 TASK-4의 파일(.claude-rails.json, scripts/test-all.sh)이 아니라 TASK-1의 frontend/package.json 설정 문제로 확인되어 TASK-1.5로 수정 중. TASK-4.1/4.2 AC도 뒤늦게 체크 및 근거 보완함.
 <!-- SECTION:FINAL_SUMMARY:END -->
