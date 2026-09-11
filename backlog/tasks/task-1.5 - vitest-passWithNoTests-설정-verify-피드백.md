@@ -4,11 +4,13 @@ title: vitest passWithNoTests 설정 (verify 피드백)
 status: Done
 assignee: []
 created_date: '2026-09-11 04:21'
-updated_date: '2026-09-11 04:42'
+updated_date: '2026-09-11 05:34'
 labels: []
+milestone: m-0
 dependencies: []
 documentation:
   - doc-5
+  - doc-6
 modified_files:
   - frontend/package.json
 parent_task_id: TASK-1

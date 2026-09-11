@@ -4,7 +4,9 @@ title: GitHub OIDC IAM 정의
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:41'
+updated_date: '2026-09-11 05:35'
 labels: []
+milestone: m-6
 dependencies: []
 modified_files:
   - infra/iam_oidc.tf

@@ -4,7 +4,9 @@ title: nginx 설정
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:35'
+updated_date: '2026-09-11 05:36'
 labels: []
+milestone: m-6
 dependencies: []
 modified_files:
   - nginx/nginx.conf
