@@ -3,7 +3,7 @@ id: doc-3
 title: 진행 로그 (recap 기록)
 type: other
 created_date: '2026-09-11 04:18'
-updated_date: '2026-09-11 14:44'
+updated_date: '2026-09-11 19:46'
 ---
 # 진행 로그 (recap 기록)
 
@@ -35,7 +35,7 @@ updated_date: '2026-09-11 14:44'
 - 사용자 결정: 훅은 그대로 두고, main 머지는 사용자가 직접 수행. 실제로 사용자가 PR #1~4를 머지 커밋 방식(스쿼시 아님)으로 직접 머지 완료함
 - 로컬 main을 origin 기준으로 재정렬, plan-v6 커밋은 별도 브랜치(docs/plan-v6)로 옮겨 PR #5로 오픈(Claude가 main에 직접 push하지 않는다는 정책을 스스로도 지킴)
 
-## 진행 중인 이슈
+## 진행 중인 이슈 (2026-09-11 초기 기록 시점)
 - verify가 지적한 vitest exit-1 버그 수정 필요(frontend/package.json에 --passWithNoTests 적용 예정)
 - TASK-4.1/4.2 AC/Final Summary 보완 필요
 - 수정 후 verify 재검증 요청 예정, reviewer 세션 응답 대기 중
@@ -53,3 +53,15 @@ updated_date: '2026-09-11 14:44'
 - backlog: TASK-7.1 AC #1 체크, Final Summary 기록, 상태 Done.
 - PR: `task/TASK-7.1` 브랜치를 origin에 push 후 **PR #16** 오픈(머지는 하지 않음, 사용자 직접 머지 대기). PR 활동 구독(subscribe_pr_activity) 완료.
 - 이번 실행에서는 milestone 전환을 하지 않음(m-1은 여전히 다수 To Do 잔여) — 다음 크론 실행은 m-1의 다른 미구현 leaf task 중 하나를 이어서 처리.
+## [기록 공백 안내] 이 시점부터 아래 항목 사이의 기록 누락
+이 로그가 마지막으로 갱신된 뒤(위 항목까지) M1이 PASS로 마감되고 M2(공개 케이스 스터디 페이지, m-1)가 상당히 진행되었다(TASK-1.5/1.6/4.3/2/3/4/5.1/9.1 등 다수 Done, PR #1~#20 존재, TASK-5.2/7.1/8.1/9.1/14.1/14.2는 이미 open PR 상태). 이 크론 실행 세션은 그 사이 진행분을 직접 관찰하지 못했으므로 여기서 소급 기록하지 않는다 — 정확한 이력은 각 task의 Final Summary와 doc-4/5/6(M1 리뷰/검증 결과)를 참고할 것.
+
+## 2026-09-11 크론 실행 (이 세션)
+- 절차: 최신 origin/main fetch(커밋 21aa970d25411eab501647f2daf9ed68742a10f5, PR #9 머지분까지) → scripts/setup-dev-env.sh 실행 → docs/plans/plan-v1~v12.md 전체 불변식 재확인 → milestone/task/open-PR 현황 조사
+- 현재 마일스톤 판정: m-1(M2 공개 케이스 스터디 페이지)이 1/31 done으로 미완료 → M2가 current milestone. M2 내 TASK-5.2/6/7.1/8.1/9.1/14.1/14.2 등은 이미 open PR(#12,#16,#17,#18,#19,#20) 존재 또는 진행 중이라 재구현 대상에서 제외
+- 선택한 leaf task: TASK-13.3(Inquiry.java) — open PR 없고 의존성 없는 미착수 leaf. 부모 TASK-13/마일스톤 m-1 확인 완료
+- 구현: plan-v1 invariant #2(leaf task 실행 = 서브에이전트 필수)에 따라 Agent 서브에이전트에 위임(처음에 실수로 직접 구현했다가 발견 즉시 파일을 되돌리고 재위임함). 서브에이전트가 backend/src/main/java/com/portfolio/inquiry/Inquiry.java 작성 — JPA 엔티티(id/name/contact/message/type, InquiryType enum), Lombok 사용
+- 검증: cd backend && ./gradlew compileJava → BUILD SUCCESSFUL. bash scripts/test-all.sh(프런트+백엔드) 전체 통과 — 이 크론 환경에 Java 25(openjdk-25-jdk-headless apt 설치)와 frontend node_modules(pnpm install)가 없어 먼저 로컬 설치 후 실행함(레포 코드 파일은 변경 없음)
+- 커밋: [feat][backend] add Inquiry JPA entity (8bf7596b8dca9eb9185f937ad809727d8b9a1c6c), [chore][backlog] TASK-13.3 Done 처리(뒤이은 커밋) — 브랜치 task/TASK-13.3
+- PR: #21 (coralstay/simple_react_spring_web) — 사용자 직접 머지 대기, 이 세션에서 머지하지 않음
+- 다음 후보: TASK-13.4(InquiryRepository.java, TASK-13.3 완료로 이제 비블록), TASK-6.1/6.2(CaseStudyController/Service, TASK-5.2 PR #12 머지 후), TASK-10.x(InteriorChapter 계열) 등 — 이번 실행에서는 1개 leaf만 처리(불변식)
