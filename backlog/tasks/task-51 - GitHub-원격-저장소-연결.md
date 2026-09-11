@@ -1,7 +1,7 @@
 ---
-id: DRAFT-5
+id: TASK-51
 title: GitHub 원격 저장소 연결
-status: Draft
+status: To Do
 assignee: []
 created_date: '2026-09-10 15:21'
 labels: []
