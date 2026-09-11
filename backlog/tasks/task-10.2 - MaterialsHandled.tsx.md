@@ -1,10 +1,10 @@
 ---
 id: TASK-10.2
 title: MaterialsHandled.tsx
-status: To Do
+status: In Progress
 assignee: []
 created_date: '2026-09-10 15:31'
-updated_date: '2026-09-11 05:35'
+updated_date: '2026-09-11 20:40'
 labels: []
 milestone: m-1
 dependencies: []
