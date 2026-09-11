@@ -4,8 +4,9 @@ title: 개발환경 셋업 스크립트 (git-format taskPrefix)
 status: Done
 assignee: []
 created_date: '2026-09-11 04:28'
-updated_date: '2026-09-11 05:41'
+updated_date: '2026-09-11 05:34'
 labels: []
+milestone: m-0
 dependencies: []
 modified_files:
   - scripts/setup-dev-env.sh
