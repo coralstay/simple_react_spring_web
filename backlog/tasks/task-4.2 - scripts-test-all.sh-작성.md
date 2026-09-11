@@ -1,9 +1,10 @@
 ---
 id: TASK-4.2
 title: scripts/test-all.sh 작성
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-09-10 15:31'
+updated_date: '2026-09-10 23:17'
 labels: []
 dependencies: []
 modified_files:
