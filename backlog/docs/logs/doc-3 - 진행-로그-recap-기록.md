@@ -3,7 +3,7 @@ id: doc-3
 title: 진행 로그 (recap 기록)
 type: other
 created_date: '2026-09-11 04:18'
-updated_date: '2026-09-12 00:50'
+updated_date: '2026-09-12 00:56'
 ---
 # 진행 로그 (recap 기록)
 
@@ -54,9 +54,13 @@ updated_date: '2026-09-12 00:50'
 - PR: `task/TASK-7.1` 브랜치를 origin에 push 후 **PR #16** 오픈(머지는 하지 않음, 사용자 직접 머지 대기). PR 활동 구독(subscribe_pr_activity) 완료.
 - 이번 실행에서는 milestone 전환을 하지 않음(m-1은 여전히 다수 To Do 잔여) — 다음 크론 실행은 m-1의 다른 미구현 leaf task 중 하나를 이어서 처리.
 
-## 2026-09-12 00:48 UTC — PR #16 머지 완료, 세션 종료
-- 14:45 UTC부터 약 10시간 동안 시간당 자체 체크인(send_later)으로 PR #16 상태를 감시(CI 미구성/SonarQube 통과 외 변동 없음 반복 확인)하던 중, GitHub 웹훅으로 `pull_request.closed`(outcome: merged) 이벤트 수신.
-- 머지 커밋: `ea0329dd540e8930b56b0c558f08be943e8b9e55`(부모: `aaa6fa93a1c14220dbe74d59ea35879ae2588a2f`, `0c08bf20a417177f14d8a0735f919c581b21d39d`), origin/main 기준 확인 완료. TASK-7.1(Hero.tsx)이 main에 최종 반영됨.
-- 세션은 PR 머지로 자동 구독 해제됨.
-- 같은 기간 동안 다른 브랜치들(`task/TASK-8.1`, `task/TASK-9.1`, `task/TASK-10.2`, `task/TASK-10.3`, `task/TASK-11.1`, `task/TASK-12.1`, `task/TASK-13.1`, `task/TASK-13.3`, `task/TASK-14.1`, `task/TASK-14.2`, `task/TASK-53` 등)이 origin에 새로 생성된 것을 확인 — 다른 크론 실행/세션들이 병행해서 backlog의 다른 leaf task들을 진행 중인 것으로 보임. 또한 PR #14(SecurityConfig 재작업)·PR #15(plan-v13) 모두 이 사이 병합됨(머지 커밋 `3e41cfef2c169fafe5b09612b6f7d4867dd2b5fe`, `aaa6fa93a1c14220dbe74d59ea35879ae2588a2f`).
-- 이 세션은 plan-v1 불변식("한 실행당 leaf task 1개, 체이닝 금지")에 따라 이미 TASK-7.1 1건을 완료했고, 다른 세션들이 이미 나머지 backlog를 병행 진행 중임을 확인했으므로 추가 task를 새로 집지 않고 여기서 종료한다.
+## 2026-09-12 00:55 UTC — PR #17 코멘트 대응: TASK-54(M8 신설) + TASK-54.1 구현
+- 배경: PR #17(TASK-8.1 Intro.tsx)을 오픈한 뒤 사용자 지시로 hourly PR 체크인을 self-schedule(send_later)해서 CI/리뷰 유무를 계속 확인하던 중, 저장소 소유자(coralstay, author_association: OWNER — `get_me` 결과와 동일 계정으로 확인)로부터 PR #17에 코멘트가 달림: "pnpm build — vite.config.ts의 기존 TS2769 오류... 테스트 내용 새롭게 태스크로 만들고 마일스톤도 만들어서 진행해." → 여러 leaf PR(#16 Hero.tsx, #17 Intro.tsx 등)에서 반복적으로 "이 leaf 범위 밖의 기존 이슈"로 보류해온 project-wide `pnpm build` 실패(vite.config.ts TS2769)를 정식 backlog task + 신규 마일스톤으로 추적하라는 명시적 지시.
+- 그 사이 다른 실행(사용자 직접 작업 및/또는 병렬 크론)으로 PR #12/#14/#15/#16이 모두 main에 머지됨을 확인(`git fetch origin` 결과 main이 `21aa970d...` → `ea0329dd540e8930b56b0c558f08be943e8b9e55`로 진행), PR #17은 이미 "Merge branch 'main' into task/TASK-8.1"로 최신화되어 mergeable_state: clean 확인. PR #18~#28(TASK-9.1/10.2/10.3/11.1/12.1/13.1/13.3/14.1/14.2/TASK-53/doc chore)도 그 사이 병렬로 오픈된 상태 확인(재구현 대상 아님, 스킵).
+- 조치: `backlog milestone add "M8 빌드 결함 수정"` → **m-7** 생성. `backlog task create`로 **TASK-54**(부모, vite.config.ts TS2769 빌드 오류 수정 개요, PR #17 코멘트 URL을 `--ref`로 연결) + **TASK-54.1**(leaf, `frontend/vite.config.ts` 파일 1개, AC: pnpm build가 TS2769 없이 통과) 생성.
+- origin/main(`ea0329dd...`) 기준 새 브랜치 `task/TASK-54.1` 생성, 서브에이전트에게 구현 위임: `defineConfig` import를 `"vite"` → `"vitest/config"`로 1줄 변경(vitest 공식 패턴, `test` 필드 타입 확장). 나머지 proxy/plugins/test 설정은 그대로 유지.
+- 검증: pnpm lint(oxlint) 통과, pnpm test(vitest --passWithNoTests) 통과, npx tsc -b --force 전체 오류 0건, **pnpm build(tsc -b && vite build) 완주 성공** — 이 저장소에서 pnpm build가 처음으로 끝까지 성공한 사례(이전까지는 모든 leaf PR이 이 오류를 "무관한 기존 이슈"로 보고만 했음).
+- 커밋: `bf8890714d733f8120c42ff3bfad0adb539ea588`([chore][backlog] add M8 milestone and TASK-54 for vite.config.ts fix), `b9e915eed64f3fac63bdf5b07a61c20977179fab`([fix][frontend] fix vite.config.ts TS2769 build error), `31de06a...`([chore][backlog] TASK-54.1 Done 처리, Tokens-Used: 55975 / Tool-Calls: 11 — 서브에이전트 완료 보고 근사치).
+- backlog: TASK-54.1 AC #1 체크, Implementation Plan/Final Summary 기록, 상태 Done. TASK-54(부모)는 기존 관례대로 To Do 유지(다른 부모 task들과 동일 패턴).
+- PR: `task/TASK-54.1` 브랜치를 origin에 push 후 새 PR 오픈 예정(머지는 하지 않음). PR #17 코멘트에도 조치 결과를 답글로 남길 예정.
+- 이번에도 milestone "전환"(m-1 완료 처리)은 하지 않음 — m-7(M8)은 이 결함 하나만 담은 신규 마일스톤이며, m-1(M2)은 여전히 다수 To Do 잔여.
