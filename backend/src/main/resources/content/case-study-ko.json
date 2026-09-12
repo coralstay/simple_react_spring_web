@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "title": "숲마루 스테이",
+    "subtitle": "현장에서 배운 눈썰미로 운영하는 독채 스테이",
+    "location": "강원도 양양군",
+    "propertyType": "독채 스테이(단독주택 리모델링)",
+    "tags": ["독채", "반려동물 동반 불가", "주차 가능", "바다 근처", "감성 숙소"]
+  },
+  "hero": {
+    "headline": "현장에서 쌓은 안목으로, 오래 머물고 싶은 공간을 운영합니다",
+    "subheadline": "건축·실내건축 현장 7년, 그리고 지금은 이 공간을 3년째 직접 운영하고 있습니다.",
+    "heroImageUrl": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1600&q=80",
+    "summaryStats": [
+      { "label": "재방문율", "value": "34%" },
+      { "label": "평균 평점", "value": "4.9 / 5.0" },
+      { "label": "운영 기간", "value": "3년" }
+    ]
+  },
+  "chapters": {
+    "construction": {
+      "title": "여러 현장에서 처음 배운 것들",
+      "narrative": "건축 현장에서 일용직으로 2년을 보내며, 도면 위의 선이 실제로 어떻게 벽과 바닥이 되는지를 몸으로 익혔습니다. 특정 건물 하나를 지은 이야기가 아니라, 여러 현장을 옮겨 다니며 마주친 문제들과 그때그때 배운 것들의 모음입니다.",
+      "onSiteLessons": [
+        {
+          "title": "콘크리트 양생, 서두르면 반드시 티가 난다",
+          "description": "타설 후 양생 기간을 단축하려다 균열이 생기는 걸 여러 번 목격했습니다. 완공 후 몇 달이 지나야 드러나는 하자도 있다는 걸 그때 알았습니다.",
+          "imageUrl": "https://images.unsplash.com/photo-1541976590-713941681591?auto=format&fit=crop&w=1200&q=80"
+        },
+        {
+          "title": "방수는 눈에 안 보이는 곳이 전부다",
+          "description": "옥상과 화장실 방수층 시공을 도우면서, 겉으로 멀쩡해 보여도 디테일 하나가 몇 년 뒤 누수로 돌아온다는 걸 배웠습니다.",
+          "imageUrl": "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80"
+        },
+        {
+          "title": "협업 없이는 일정도 없다",
+          "description": "전기·설비·목공 팀 사이의 순서가 하루만 꼬여도 전체 공정이 밀린다는 걸 현장에서 직접 겪으며 배웠습니다.",
+          "imageUrl": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80"
+        }
+      ]
+    },
+    "interior": {
+      "title": "가장 오래, 가장 깊이 있었던 인테리어 현장",
+      "narrative": "실내건축 현장에서 보낸 5년은 자재 하나하나를 직접 만지고, 마감의 차이를 눈과 손으로 구별하게 된 시간이었습니다. 이 역시 여러 현장에서 쌓은 경험이며, 지금 운영 중인 숙소를 지은 이야기는 아닙니다.",
+      "materialsHandled": [
+        {
+          "name": "원목마루",
+          "imageUrl": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80",
+          "whatILearned": "습도에 따라 팽창·수축 폭이 다르다는 걸 알아야 줄눈 간격을 제대로 잡을 수 있습니다."
+        },
+        {
+          "name": "친환경 페인트",
+          "imageUrl": "https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=1200&q=80",
+          "whatILearned": "건조 시간을 지키지 않으면 색 얼룩과 붓자국이 그대로 남는다는 걸 여러 번의 재도장으로 배웠습니다."
+        },
+        {
+          "name": "타일과 줄눈재",
+          "imageUrl": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80",
+          "whatILearned": "줄눈재 배합비가 조금만 달라져도 곰팡이 저항성이 크게 차이 난다는 걸 직접 비교해보고 알았습니다."
+        }
+      ],
+      "craftDetails": [
+        {
+          "title": "몰딩과 걸레받이의 각도 맞추기",
+          "description": "직각이 아닌 벽면 모서리에서 몰딩을 자연스럽게 이어 붙이는 방법을 선배 기능공에게 어깨너머로 배우고, 수십 번의 실패 끝에 손에 익혔습니다.",
+          "images": [
+            "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+          ]
+        },
+        {
+          "title": "조명 위치가 공간의 인상을 바꾼다",
+          "description": "같은 구조의 방이라도 간접조명의 위치와 색온도에 따라 완전히 다른 분위기가 나온다는 걸 여러 현장의 시공을 거치며 체감했습니다.",
+          "images": [
+            "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80"
+          ]
+        }
+      ],
+      "lessonsCarriedForward": [
+        {
+          "title": "마감재를 보면 하자 시점이 보인다",
+          "description": "지금 숙소를 관리할 때도 벽지나 실리콘의 미세한 변색만 보고도 곰팡이나 누수의 초기 징후를 먼저 알아챕니다."
+        },
+        {
+          "title": "시공업체와의 대화가 달라진다",
+          "description": "현장 용어와 공정 순서를 알고 있어서, 수리 견적을 받을 때 과잉 견적인지 정당한 견적인지 스스로 판단할 수 있습니다."
+        }
+      ]
+    },
+    "bridge": {
+      "title": "그 현장들에서 배운 눈썰미로, 지금 이 공간을 운영합니다",
+      "narrative": "건축과 인테리어 현장에서 쌓은 감각은 지금 운영 중인 이 숙소를 고르고, 고치고, 유지하는 모든 판단의 기준이 되었습니다. 아래 리모델링은 배경 경험과 지금의 케이스를 잇는 가장 구체적인 증거입니다.",
+      "renovation": {
+        "title": "노후 주택 반셀프 리모델링",
+        "description": "20년 넘은 단독주택을 매입해, 구조 안전진단부터 단열·창호·마감까지 직접 공정을 관리하며 8개월에 걸쳐 리모델링했습니다. 철거 과정에서 발견된 배관 노후 문제를 현장 경험 덕분에 초기에 알아채 큰 하자로 번지기 전에 해결했습니다.",
+        "beforeImageUrl": "https://images.unsplash.com/photo-1560184897-ae75f418493e?auto=format&fit=crop&w=1200&q=80",
+        "afterImageUrl": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80",
+        "cost": "8,200만원",
+        "period": "2023.02 ~ 2023.09"
+      }
+    },
+    "operations": {
+      "title": "숙박업 운영, 지금의 진짜 이야기",
+      "narrative": "3년째 이 숙소를 직접 운영하며, 현장에서 배운 눈썰미가 예약 관리보다 공간 유지·보수 판단에서 훨씬 크게 작용한다는 걸 매일 확인합니다.",
+      "spaceDecisions": [
+        {
+          "title": "재방문 손님 동선을 고려한 조명 재배치",
+          "description": "체크인 후 어두워지는 저녁 시간대 동선을 직접 걸어보며, 간접조명 위치를 두 차례 재배치해 안전 사고 문의를 없앴습니다.",
+          "imageUrl": "https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?auto=format&fit=crop&w=1200&q=80"
+        },
+        {
+          "title": "습기 취약 구간 정기 점검",
+          "description": "인테리어 현장에서 배운 대로, 욕실 실리콘 코킹 상태를 계절마다 직접 점검해 곰팡이 관련 컴플레인을 사전에 차단하고 있습니다.",
+          "imageUrl": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80"
+        }
+      ],
+      "metrics": [
+        { "label": "평균 객실 점유율", "value": "71", "unit": "%" },
+        { "label": "재방문율", "value": "34", "unit": "%" },
+        { "label": "노쇼율", "value": "2.1", "unit": "%" },
+        { "label": "평균 평점", "value": "4.9", "unit": "/5.0" }
+      ],
+      "reviewHighlights": [
+        {
+          "quote": "구석구석 손이 많이 간 티가 나는 숙소였어요. 마감이 정말 꼼꼼했습니다.",
+          "rating": 5,
+          "date": "2026-06-14"
+        },
+        {
+          "quote": "사장님이 현장을 잘 아셔서 그런지 관리 상태가 남달랐어요. 또 오고 싶습니다.",
+          "rating": 5,
+          "date": "2026-04-02"
+        },
+        {
+          "quote": "조명과 동선이 편안했고, 세심하게 관리된 느낌을 받았습니다.",
+          "rating": 4,
+          "date": "2026-01-19"
+        }
+      ]
+    }
+  },
+  "closing": {
+    "reflection": "건축 현장에서 배운 기본기, 인테리어 현장에서 익힌 디테일, 그리고 지금 이 공간을 운영하며 매일 쌓는 경험이 하나로 이어지고 있습니다.",
+    "contactCta": "예약 문의나 궁금하신 점은 아래 문의 폼으로 편하게 남겨주세요."
+  }
+}
