@@ -3,7 +3,7 @@ id: doc-3
 title: 진행 로그 (recap 기록)
 type: other
 created_date: '2026-09-11 04:18'
-updated_date: '2026-09-12 00:56'
+updated_date: '2026-09-12 05:43'
 ---
 # 진행 로그 (recap 기록)
 
@@ -138,3 +138,15 @@ updated_date: '2026-09-12 00:56'
 - backlog: TASK-54.1 AC #1 체크, Implementation Plan/Final Summary 기록, 상태 Done. TASK-54(부모)는 기존 관례대로 To Do 유지(다른 부모 task들과 동일 패턴).
 - PR: `task/TASK-54.1` 브랜치를 origin에 push 후 새 PR 오픈 예정(머지는 하지 않음). PR #17 코멘트에도 조치 결과를 답글로 남길 예정.
 - 이번에도 milestone "전환"(m-1 완료 처리)은 하지 않음 — m-7(M8)은 이 결함 하나만 담은 신규 마일스톤이며, m-1(M2)은 여전히 다수 To Do 잔여.
+
+## 2026-09-12 (스케줄 실행) — 하드스톱 확인 후 TASK-10.4 구현
+- **하드스톱 조건 우선 확인**(이번 스케줄 프롬프트의 필수 선행 절차): (1) `git fetch origin main` 후 `backend/src/main/java/com/portfolio/auth/SecurityConfig.java`를 origin/main(`af9c925b82a3795b153c11feb9c4a4f193ed1447`)에서 직접 read — `authorize.requestMatchers(GET /api/case-study | POST /api/inquiries | /error).permitAll()` + `.anyRequest().authenticated()` 확인, `.anyRequest().permitAll()` 아님. PR #14(`fix/TASK-15.1-securityconfig`)가 merge commit `3e41cfe`로 이미 main에 merge됨(`merged: true`, `merged_at: 2026-09-12T00:47:30Z`)을 `pull_request_read`로 재확인. (2) `backlog/docs/reviews/doc-9`(M2 착수 전 필수 3건 — reviewer 최종 확인) 본문을 직접 read — TASK-15.1/TASK-1.6/TASK-4.3 세 건 모두에 대해 "승인"/"전부 코드 품질 관점에서도 승인. reviewer 게이트 닫음 — PR #14 머지되면 ... M2 계속 진행 가능"이라는 명시적 PASS 결론 확인(doc-4는 원래 재작업을 요구한 리뷰일 뿐이라 doc-4 링크 존재만으로는 PASS로 보지 않고, doc-9의 실제 문구를 근거로 삼음). 두 조건 모두 충족 확인 → 하드스톱 해제, 정상 워크플로 재개.
+- 절차: `git fetch origin main`(로컬 105 커밋 뒤처짐 확인, `af9c925`까지 fast-forward pull) → `mcp__github__list_pull_requests(state=open)` 결과 열린 PR 0개 확인 → `npm install -g backlog.md@1.51.0`로 CLI 설치(이 클라우드 세션에 사전 설치 안 되어 있었음) → docs/plans/README.md(v1~v15) 목록과 실제 plan-v*.md 파일 일치 확인 → `backlog milestone list --plain` 결과 m-0(M1) Done, m-1(M2, 13/31 done)이 현재 마일스톤.
+- 후보 leaf 검토: TASK-6.1/6.2(CaseStudyController/Service, TASK-5.2 JSON은 이미 main에 존재 — 이제 후보 가능하나 이번엔 미선택), TASK-13.2/13.4/13.5(Inquiry 엔티티는 TASK-13.3으로 이미 Done — 후보 가능하나 미선택), TASK-14.3(ScrollReveal.tsx, useInView/useScrollProgress 둘 다 Done — 후보 가능하나 미선택), TASK-10.1(InteriorChapter.tsx 컨테이너, 하위 10.2/10.3/10.4를 조립하는 성격이라 10.4 완료 후가 자연스러움). 직전 recap(TASK-13.1 항목)이 다음 후보로 명시한 TASK-10.4/TASK-14.3 중 **TASK-10.4 — LessonsCarriedForward.tsx**를 선택(부모 TASK-10 "인테리어 현장 경험 챕터 컴포넌트(최다 분량)", 마일스톤 m-1 확인 완료, plan-v8 상위 2뎁스 확인 규칙 준수). dependencies 없음, 열린 PR 없음, `frontend/src/content/types.ts`의 `LessonCarriedForward`(이미 main에 존재)에만 의존 — 독립 구현 가능.
+- **구현은 plan-v1 불변식 #2를 준수해 서브에이전트(Agent tool)에 위임**(agentId 내부용, subagent_tokens 53298, tool_uses 12). 서브에이전트 프롬프트에 leaf task AC + 부모 task 설명 + `LessonCarriedForward` 타입(이미지 필드 없음, title/description만) + MaterialsHandled.tsx/CraftDetails.tsx 선례 컨벤션(inline CSSProperties, heading+auto-fit grid+card, wordBreak:keep-all)을 포함해 전달.
+- 구현: `frontend/src/sections/chapters/LessonsCarriedForward.tsx` 신규 생성(파일 1개) — `LessonCarriedForward[]`(title/description, 이미지 없음)를 렌더링하는 텍스트 전용 카드 그리드("지금 운영에 남은 것들" 헤딩), MaterialsHandled.tsx/CraftDetails.tsx와 동일한 inline CSSProperties/auto-fit grid/wordBreak:keep-all 컨벤션.
+- 검증(서브에이전트 보고 + 오케스트레이터가 동일 명령 직접 재실행 모두 확인, 결과 일치): `pnpm lint`(oxlint) exit 0(기존 `useInView.ts`의 무관한 `set-state-in-effect` 경고만 존재, 신규 파일 관련 경고/오류 없음), `pnpm test`(vitest --passWithNoTests) exit 0, `npx tsc -b --force` exit 0(오류 0건 — TASK-54.1로 vite.config.ts TS2769가 이미 해결되어 있음을 재확인).
+- 커밋(모두 브랜치 `task/TASK-10.4`, 베이스 `origin/main af9c925b82a3795b153c11feb9c4a4f193ed1447`): `31f514e6f2a1782b556706f73a1eb44b1535895e`([chore][backlog] TASK-10.4 in progress 표시), `98aece9b29b58a86c68b023e0cd8a3c841799ff5`([feat][frontend] add LessonsCarriedForward chapter cards, 서브에이전트 작성), `e406158bc2eab780526374166eec2db673e42c06`([chore][backlog] TASK-10.4 Done 처리, Tokens-Used: 53298 / Tool-Calls: 12).
+- backlog: TASK-10.4 AC #1 체크, Implementation Plan/Notes/Final Summary 기록, 상태 Done.
+- PR: `task/TASK-10.4` 브랜치를 origin에 push 후 PR 오픈 예정(머지는 하지 않음, 사용자 직접 머지 대기). PR 활동 구독(subscribe_pr_activity) 예정.
+- 이번 실행에서도 마일스톤 "전환"은 하지 않음(m-1은 여전히 다수 To Do 잔여, 1개 leaf task만 처리하는 정책 준수). 다음 크론 실행 후보(선행 미병합 의존 없음 확인됨): TASK-14.3(ScrollReveal.tsx), TASK-6.1/6.2(CaseStudyController/Service), TASK-13.2/13.4/13.5(ContactForm/InquiryRepository/InquiryController), TASK-10.1(InteriorChapter.tsx — 이제 10.2/10.3/10.4 모두 Done이라 조립 가능).

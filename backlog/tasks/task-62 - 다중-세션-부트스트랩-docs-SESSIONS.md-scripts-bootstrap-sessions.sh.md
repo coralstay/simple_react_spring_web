@@ -1,10 +1,10 @@
 ---
 id: TASK-62
-title: "다중 세션 부트스트랩: docs/SESSIONS.md + scripts/bootstrap-sessions.sh"
+title: '다중 세션 부트스트랩: docs/SESSIONS.md + scripts/bootstrap-sessions.sh'
 status: To Do
 assignee: []
-created_date: "2026-09-12 06:33"
-updated_date: "2026-09-12 06:37"
+created_date: '2026-09-12 06:33'
+updated_date: '2026-09-12 06:37'
 labels:
   - governance
   - docs
@@ -18,7 +18,6 @@ references:
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-
 # 다중 세션 부트스트랩: `docs/SESSIONS.md` + `scripts/bootstrap-sessions.sh`
 
 ## Context
@@ -70,15 +69,11 @@ backlog draft promote로 task 승격 → 승격 직후 TASK-55/TASK-61을 --add-
 
 - docs/SESSIONS.md: 저장소 실제 worktree 목록(git worktree list)/backlog 디렉토리 실제 내용과 문서 설명이 일치하는지 대조.
 - scripts/bootstrap-sessions.sh: 실제로 실행하기 전에 먼저 bash -n scripts/bootstrap-sessions.sh로 문법 검사, 이후 로컬에서 1회 실행해 iTerm2에 탭 4개가 올바른 디렉토리로 열리는지 확인. 단, 각 탭에서 claude "..." 프롬프트가 실제로 전송되어 자율 루프가 시작되는 순간부터는 실제 커밋/PR이 발생할 수 있으므로, 최초 실행 후에는 각 탭이 올바른 역할 프롬프트로 시작하는지 눈으로 확인한 뒤 필요하면 즉시 중단(Ctrl+C)하고, 실제로 몇 시간 동안 자율로 돌릴지는 사용자가 별도로 결정한다.
-
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
-
 <!-- AC:BEGIN -->
-
 - [ ] #1 docs/SESSIONS.md 문서가 저장소 루트에 존재하고 4개 세션 역할/worktree 경로/backlog 디렉토리 표/TASK-55·61과의 관계를 모두 포함한다
 - [ ] #2 scripts/session-prompts/ 아래 4개(implementer,reviewer,verify,logger) 역할별 프롬프트 파일이 존재한다
 - [ ] #3 scripts/bootstrap-sessions.sh가 존재하고 bash -n으로 문법 검사를 통과한다
-
 <!-- AC:END -->
