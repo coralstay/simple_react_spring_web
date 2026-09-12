@@ -3,7 +3,7 @@ id: doc-3
 title: 진행 로그 (recap 기록)
 type: other
 created_date: '2026-09-11 04:18'
-updated_date: '2026-09-11 14:44'
+updated_date: '2026-09-12 00:50'
 ---
 # 진행 로그 (recap 기록)
 
@@ -53,3 +53,10 @@ updated_date: '2026-09-11 14:44'
 - backlog: TASK-7.1 AC #1 체크, Final Summary 기록, 상태 Done.
 - PR: `task/TASK-7.1` 브랜치를 origin에 push 후 **PR #16** 오픈(머지는 하지 않음, 사용자 직접 머지 대기). PR 활동 구독(subscribe_pr_activity) 완료.
 - 이번 실행에서는 milestone 전환을 하지 않음(m-1은 여전히 다수 To Do 잔여) — 다음 크론 실행은 m-1의 다른 미구현 leaf task 중 하나를 이어서 처리.
+
+## 2026-09-12 00:48 UTC — PR #16 머지 완료, 세션 종료
+- 14:45 UTC부터 약 10시간 동안 시간당 자체 체크인(send_later)으로 PR #16 상태를 감시(CI 미구성/SonarQube 통과 외 변동 없음 반복 확인)하던 중, GitHub 웹훅으로 `pull_request.closed`(outcome: merged) 이벤트 수신.
+- 머지 커밋: `ea0329dd540e8930b56b0c558f08be943e8b9e55`(부모: `aaa6fa93a1c14220dbe74d59ea35879ae2588a2f`, `0c08bf20a417177f14d8a0735f919c581b21d39d`), origin/main 기준 확인 완료. TASK-7.1(Hero.tsx)이 main에 최종 반영됨.
+- 세션은 PR 머지로 자동 구독 해제됨.
+- 같은 기간 동안 다른 브랜치들(`task/TASK-8.1`, `task/TASK-9.1`, `task/TASK-10.2`, `task/TASK-10.3`, `task/TASK-11.1`, `task/TASK-12.1`, `task/TASK-13.1`, `task/TASK-13.3`, `task/TASK-14.1`, `task/TASK-14.2`, `task/TASK-53` 등)이 origin에 새로 생성된 것을 확인 — 다른 크론 실행/세션들이 병행해서 backlog의 다른 leaf task들을 진행 중인 것으로 보임. 또한 PR #14(SecurityConfig 재작업)·PR #15(plan-v13) 모두 이 사이 병합됨(머지 커밋 `3e41cfef2c169fafe5b09612b6f7d4867dd2b5fe`, `aaa6fa93a1c14220dbe74d59ea35879ae2588a2f`).
+- 이 세션은 plan-v1 불변식("한 실행당 leaf task 1개, 체이닝 금지")에 따라 이미 TASK-7.1 1건을 완료했고, 다른 세션들이 이미 나머지 backlog를 병행 진행 중임을 확인했으므로 추가 task를 새로 집지 않고 여기서 종료한다.
