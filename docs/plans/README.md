@@ -18,3 +18,4 @@
 | v10 | plan-v10.md | 유효(델타) | 마일스톤 전환: 직전 리뷰 PASS 확인되면 자동 진행, 아니면 대기 |
 | v11 | plan-v11.md | 유효(델타) | backlog --doc은 append가 아니라 set — 항상 기존 링크 포함해서 호출 (필수) |
 | v12 | plan-v12.md | 유효(델타) | 상태 인용 시 브랜치/ref만이 아니라 전체 커밋 해시도 필수 기록. 이미 머지된 PR에 추가 push해도 main엔 반영 안 됨 |
+| v13 | plan-v13.md | 유효(델타) | 모든 작업 전 git fetch+pull 및 PR 머지여부 확인 필수 |

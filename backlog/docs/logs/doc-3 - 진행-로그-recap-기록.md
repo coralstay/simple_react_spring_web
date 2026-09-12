@@ -3,7 +3,7 @@ id: doc-3
 title: 진행 로그 (recap 기록)
 type: other
 created_date: '2026-09-11 04:18'
-updated_date: '2026-09-11 15:43'
+updated_date: '2026-09-11 14:44'
 ---
 # 진행 로그 (recap 기록)
 
@@ -41,16 +41,15 @@ updated_date: '2026-09-11 15:43'
 - 수정 후 verify 재검증 요청 예정, reviewer 세션 응답 대기 중
 - 자동 크론(schedule 스킬) 아직 미설정 — 설정 예정
 
-## 2026-09-11 15:42 UTC — 클라우드 크론 실행: TASK-8.1 구현
-- 실행 전 상태 확인: `git fetch origin` 결과 로컬/origin/main 모두 커밋 `21aa970d25411eab501647f2daf9ed68742a10f5`(PR #9 머지 커밋)에서 최신, 뒤처짐 없음.
-- 열린 PR 확인(머지 여부 mcp github로 개별 조회): #16(TASK-7.1 Hero.tsx, open), #15(fix/TASK-13 fetch/pull 규칙, open), #14(fix/TASK-15.1 SecurityConfig 재작업, open), #12(TASK-5.2 더미 콘텐츠 JSON, open) — 넷 다 미병합 상태 확인, 재구현 대상 아님으로 스킵.
-- docs/plans/README.md 버전 표(v1~v12)는 실제 docs/plans/plan-v*.md 파일 목록과 일치 확인(불일치 없음).
-- `backlog milestone list --plain` 기준 m-0(M1)은 완료, 현재 마일스톤은 m-1(M2 공개 케이스 스터디 페이지, 착수 시점 1/31 done).
-- TASK-15.1(SecurityConfig)은 main에 이미 Done으로 반영되어 있으나 PR #14가 별도로 범위를 좁히는 재작업 중 — TASK-6.x의 형식적 의존성은 충족 상태지만 이번 실행 대상으로 선택하지 않음.
-- 선택한 leaf task: **TASK-8.1 — Intro.tsx**(부모 TASK-8, 마일스톤 m-1 확인 완료). 의존성 없음(dependencies: []), 열린 PR 없음, useInView(TASK-14.1) 미구현 상태를 감안해 Hero.tsx(TASK-7.1) 선례와 동일하게 애니메이션 의존성 없는 정적 컴포넌트로 스코프를 좁혀 선택.
-- 서브에이전트에게 구현 위임: `frontend/src/sections/Intro.tsx` 신규 생성(파일 1개, leaf 불변식 준수) — 계획서 문장("여러 현장에서 몸으로 배운 뒤, 지금은 그 감각으로 숙소를 운영합니다")을 렌더링하는 static/props-optional 컴포넌트, inline CSSProperties(clamp())로 반응형.
-- 검증: pnpm lint(oxlint, 전체+단독) 통과, pnpm test(vitest --passWithNoTests) 통과, npx tsc -b --force 결과 Intro.tsx 관련 오류 0건. pnpm build는 vite.config.ts의 기존 TS2769 오류로 실패하나 Intro.tsx 작업 전 origin/main 커밋 21aa970d25411eab501647f2daf9ed68742a10f5에서도 동일 재현 확인(무관한 기존 이슈, 이 leaf 범위 밖이라 별도 수정하지 않음).
-- 커밋: `a2a1f9f5efba06c24572aa48c40723fdd965dc9a`([feat][frontend] add Intro section component), `0971b636b1af9def3d55d8f7f9a45825dbfd2c2`([chore][backlog] TASK-8.1 Done 처리, Tokens-Used: 58317 / Tool-Calls: 14 — 서브에이전트 완료 보고 근사치).
-- backlog: TASK-8.1 AC #1 체크, Implementation Plan/Final Summary 기록, 상태 Done.
-- PR: `task/TASK-8.1` 브랜치를 origin에 push 후 PR 오픈 예정(머지는 하지 않음, 사용자 직접 머지 대기). PR 활동 구독(subscribe_pr_activity) 예정.
+## 2026-09-11 14:43 UTC — 클라우드 크론 실행: TASK-7.1 구현
+- 실행 전 상태 확인: `git fetch origin` 결과 로컬/origin/main 모두 커밋 `21aa970d25411eab501647f2daf9ed68742a10f5`(PR #9 머지 커밋)에서 최신. `backlog milestone list --plain` 기준 m-0(M1)은 완료, 현재 마일스톤은 m-1(M2 공개 케이스 스터디 페이지, 1/31 done).
+- 열린 PR 확인(머지 여부 포함): #12(TASK-5.2, open), #14(SecurityConfig 재작업, open), #15(plan-v13 fetch/pull 규칙 추가, open, 아직 미병합) — 모두 재구현 대상 아님으로 스킵.
+- docs/plans/README.md 버전 표(v1~v12)는 실제 `docs/plans/plan-v*.md` 파일 목록과 일치 확인(불일치 없음). 단, open PR #15가 병합되지 않은 `plan-v13.md`를 추가 중임을 확인 — 병합되면 README 표도 갱신될 예정(이번 실행에서는 건드리지 않음).
+- TASK-15.1(SecurityConfig, TASK-6/TASK-13의 선행 의존성, plan-v9)은 main에 이미 Done으로 반영되어 있음을 확인 → TASK-6.x 계열은 의존성 충족 상태.
+- 선택한 leaf task: **TASK-7.1 — Hero.tsx**(부모 TASK-7, 마일스톤 m-1 확인 완료). TASK-6.2(CaseStudyService, JSON 로드)는 그 리소스인 TASK-5.2의 JSON 파일이 아직 main에 병합 전(PR #12 open)이라 실질적으로 선행 조건이 불완전해 보류하고, 독립적으로 구현 가능한 Hero.tsx를 택함.
+- 서브에이전트에게 구현 위임: `frontend/src/sections/Hero.tsx` 신규 생성(파일 1개, leaf 불변식 준수) — `CaseStudyHero` props로 풀블리드 배경+headline/subheadline+summaryStats 배지+예약문의 CTA, inline CSSProperties(clamp 등)로 반응형.
+- 검증: `pnpm lint`(oxlint, 전체+단독) 통과, `pnpm test`(vitest) 통과, `npx tsc -b --force` 결과 Hero.tsx 관련 오류 0건. `pnpm build`는 `vite.config.ts`의 기존 TS2769 오류로 실패하나 Hero.tsx 작업 전 origin/main 커밋 `21aa970d25411eab501647f2daf9ed68742a10f5`에서도 동일 재현 확인(무관한 기존 이슈, 이 leaf 범위 밖이라 별도 수정하지 않음).
+- 커밋: `fbc79fe6ce4161746177eccf4d2d6ec023fd399a`([feat][frontend] add Hero section component), `057dfb622b89f2a46ecb1dcafc1ea53d445680f4`([chore][backlog] TASK-7.1 Done 처리, Tokens-Used: 57175 / Tool-Calls: 10 — 서브에이전트 완료 보고 근사치).
+- backlog: TASK-7.1 AC #1 체크, Final Summary 기록, 상태 Done.
+- PR: `task/TASK-7.1` 브랜치를 origin에 push 후 **PR #16** 오픈(머지는 하지 않음, 사용자 직접 머지 대기). PR 활동 구독(subscribe_pr_activity) 완료.
 - 이번 실행에서는 milestone 전환을 하지 않음(m-1은 여전히 다수 To Do 잔여) — 다음 크론 실행은 m-1의 다른 미구현 leaf task 중 하나를 이어서 처리.
