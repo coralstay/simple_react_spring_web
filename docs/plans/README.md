@@ -19,3 +19,5 @@
 | v11 | plan-v11.md | 유효(델타) | backlog --doc은 append가 아니라 set — 항상 기존 링크 포함해서 호출 (필수) |
 | v12 | plan-v12.md | 유효(델타) | 상태 인용 시 브랜치/ref만이 아니라 전체 커밋 해시도 필수 기록. 이미 머지된 PR에 추가 push해도 main엔 반영 안 됨 |
 | v13 | plan-v13.md | 유효(델타) | 모든 작업 전 git fetch+pull 및 PR 머지여부 확인 필수 |
+| v14 | plan-v14.md | 유효(델타) | updated_date 역행 사고 원인/재발방지: 충돌 해결 시 완성도 비교 필수 |
+| v15 | plan-v15.md | 유효(델타) | 기술 용어 언급 시 정확한 위치/소속 명시 필수 |
