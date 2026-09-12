@@ -35,6 +35,7 @@ updated_date: '2026-09-12 00:56'
 - 사용자 결정: 훅은 그대로 두고, main 머지는 사용자가 직접 수행. 실제로 사용자가 PR #1~4를 머지 커밋 방식(스쿼시 아님)으로 직접 머지 완료함
 - 로컬 main을 origin 기준으로 재정렬, plan-v6 커밋은 별도 브랜치(docs/plan-v6)로 옮겨 PR #5로 오픈(Claude가 main에 직접 push하지 않는다는 정책을 스스로도 지킴)
 
+## 진행 중인 이슈 (2026-09-11 초기 기록 시점)
 ## 진행 중인 이슈 (이 시점 이후 상태는 아래 최신 항목 참고)
 - verify가 지적한 vitest exit-1 버그 수정 필요(frontend/package.json에 --passWithNoTests 적용 예정)
 - TASK-4.1/4.2 AC/Final Summary 보완 필요
@@ -68,6 +69,34 @@ updated_date: '2026-09-12 00:56'
 - backlog: TASK-10.3 AC #1 체크, Final Summary 기록, 상태 Done.
 - PR: `task/TASK-10.3` 브랜치를 origin에 push 후 PR 오픈 예정(머지는 하지 않음, 사용자 직접 머지 대기). PR 활동 구독(subscribe_pr_activity) 예정.
 - 이번 실행에서는 마일스톤 전환을 하지 않음(m-1은 여전히 다수 To Do 잔여). 다음 크론 실행 후보(선행 미병합 의존 없음 확인됨): TASK-11.1(BridgeSection.tsx — 단, AC 문구가 "RenovationProject API 연동"이라 되어 있어 백엔드 TASK-24 미구현 상태와의 정합성을 먼저 부모/마일스톤 문서로 재확인 권장), TASK-12.1(OperationsChapter.tsx), TASK-13.1(Closing.tsx). TASK-6.x/TASK-13.2~13.5/TASK-14.3/TASK-10.1은 각각 선행 PR(#12/#21/#19,#20/#22) 병합 후 재검토 권장.
+## 2026-09-11 (스케줄 실행) — TASK-10.2 구현
+- 실행 전 상태 확인: `git fetch origin` 결과 로컬/origin/main 모두 커밋 `21aa970d25411eab501647f2daf9ed68742a10f5`에서 최신, 뒤처짐 없음(이 실행 중 재확인 시점 포함 2회 fetch, 변동 없음).
+- `scripts/setup-dev-env.sh` 실행(`gitformat.taskPrefix=TASK` 설정 확인).
+- docs/plans/README.md 버전 표(v1~v12)는 실제 docs/plans/plan-v*.md 파일 목록과 일치(불일치 없음). 열린 PR #15가 미병합 `plan-v13.md`를 추가 중이나 main엔 아직 반영 안 됨 — 이번 실행에서 건드리지 않음.
+- 열린 PR 9개 확인(모두 head/base가 현재 main `21aa970d25411eab501647f2daf9ed68742a10f5` 기준으로 미병합): #21(TASK-13.3 Inquiry.java), #20(TASK-14.2 useScrollProgress), #19(TASK-14.1 useInView), #18(TASK-9.1 ConstructionChapter), #17(TASK-8.1 Intro), #16(TASK-7.1 Hero), #15(fix/TASK-13 fetch·pull 규칙, plan-v13), #14(fix/TASK-15.1 SecurityConfig 재작업), #12(TASK-5.2 더미 콘텐츠 JSON) — 전부 재구현 대상에서 제외.
+- `backlog milestone list --plain` 기준 m-0(M1) Done, 현재 마일스톤 m-1(M2 공개 케이스 스터디 페이지, 착수 시점 1/31 done).
+- 후보 leaf 중 TASK-6.x(CaseStudyService가 참조할 JSON은 TASK-5.2/PR #12 미병합)와 TASK-13.3/13.4/13.5(Inquiry 엔티티 체인, PR #21 미병합) 계열은 선행 파일이 main에 없어 제외. TASK-13.2(ContactForm)도 POST /api/inquiries 백엔드 미병합이라 보류.
+- 선택한 leaf task: **TASK-10.2 — MaterialsHandled.tsx**(부모 TASK-10 "인테리어 현장 경험 챕터 컴포넌트(최다 분량)", 마일스톤 m-1 확인 완료). dependencies 없음, 열린 PR 없음, `frontend/src/content/types.ts`의 `MaterialHandled` 타입에만 의존(이미 main에 존재) — 독립 구현 가능. TASK-10.1(InteriorChapter.tsx, 컨테이너)은 10.2~10.4 서브피스를 조합할 것으로 보여 이번 실행 대상에서 제외(선행 필요).
+- **구현은 plan-v1 불변식 #2를 준수해 서브에이전트에 위임**(이전 TASK-9.1 실행의 프로세스 이탈을 재발하지 않음). 서브에이전트에게 leaf task + 부모 task(plan-v8) + ConstructionChapter.tsx 선례 컨벤션을 프롬프트에 포함해 전달.
+- 구현: `frontend/src/sections/chapters/MaterialsHandled.tsx` 신규 생성(파일 1개) — `MaterialHandled[]` props로 이미지(lazy)+자재명+배운 점 카드 그리드 렌더링, ConstructionChapter.tsx와 동일한 inline CSSProperties/clamp()/auto-fit grid/wordBreak:keep-all 컨벤션.
+- 검증(서브에이전트 보고 + 오케스트레이터 재검증 모두 확인): `pnpm lint`(oxlint) exit 0, `pnpm test`(vitest --passWithNoTests) exit 0, `npx tsc -b --force` 결과 MaterialsHandled.tsx 관련 오류 0건(vite.config.ts 기존 TS2769만 재현, Hero/Intro/ConstructionChapter 선례와 동일한 leaf 범위 밖 기존 이슈).
+- 커밋: `90cf2af7078fe64224a58983312204bbc1582222`([feat][frontend] add MaterialsHandled chapter cards, 서브에이전트 작성) — TASK Done 처리 커밋은 이 recap 커밋에 이어서 별도로 기록(Task-Id/Tokens-Used/Tool-Calls 트레일러 포함).
+- 서브에이전트 사용량: subagent_tokens 59313, tool_uses 14 (agentId aaf5a9fe277fa5d19) — Done 커밋 트레일러에 반영.
+- backlog: TASK-10.2 AC #1 체크, Final Summary 기록, 상태 Done.
+- PR: `task/TASK-10.2` 브랜치를 origin에 push 후 PR 오픈 예정(머지는 하지 않음, 사용자 직접 머지 대기). PR 활동 구독(subscribe_pr_activity) 예정.
+- 이번 실행에서는 마일스톤 전환을 하지 않음(m-1은 여전히 다수 To Do 잔여). 다음 크론 실행은 m-1의 다른 미구현 leaf task(TASK-10.3 CraftDetails.tsx, TASK-10.4 LessonsCarriedForward.tsx, TASK-11.1 BridgeSection.tsx, TASK-12.1 OperationsChapter.tsx, TASK-13.1 Closing.tsx, TASK-14.3 ScrollReveal.tsx 등, 모두 선행 미병합 의존 없음 확인됨) 중 하나를 이어서 처리 권장. TASK-6.x/TASK-13.2~13.5는 각각 PR #12/#21 병합 후 재검토 권장.
+## [기록 공백 안내] 이 시점부터 아래 항목 사이의 기록 누락
+이 로그가 마지막으로 갱신된 뒤(위 항목까지) M1이 PASS로 마감되고 M2(공개 케이스 스터디 페이지, m-1)가 상당히 진행되었다(TASK-1.5/1.6/4.3/2/3/4/5.1/9.1 등 다수 Done, PR #1~#20 존재, TASK-5.2/7.1/8.1/9.1/14.1/14.2는 이미 open PR 상태). 이 크론 실행 세션은 그 사이 진행분을 직접 관찰하지 못했으므로 여기서 소급 기록하지 않는다 — 정확한 이력은 각 task의 Final Summary와 doc-4/5/6(M1 리뷰/검증 결과)를 참고할 것.
+
+## 2026-09-11 크론 실행 (이 세션)
+- 절차: 최신 origin/main fetch(커밋 21aa970d25411eab501647f2daf9ed68742a10f5, PR #9 머지분까지) → scripts/setup-dev-env.sh 실행 → docs/plans/plan-v1~v12.md 전체 불변식 재확인 → milestone/task/open-PR 현황 조사
+- 현재 마일스톤 판정: m-1(M2 공개 케이스 스터디 페이지)이 1/31 done으로 미완료 → M2가 current milestone. M2 내 TASK-5.2/6/7.1/8.1/9.1/14.1/14.2 등은 이미 open PR(#12,#16,#17,#18,#19,#20) 존재 또는 진행 중이라 재구현 대상에서 제외
+- 선택한 leaf task: TASK-13.3(Inquiry.java) — open PR 없고 의존성 없는 미착수 leaf. 부모 TASK-13/마일스톤 m-1 확인 완료
+- 구현: plan-v1 invariant #2(leaf task 실행 = 서브에이전트 필수)에 따라 Agent 서브에이전트에 위임(처음에 실수로 직접 구현했다가 발견 즉시 파일을 되돌리고 재위임함). 서브에이전트가 backend/src/main/java/com/portfolio/inquiry/Inquiry.java 작성 — JPA 엔티티(id/name/contact/message/type, InquiryType enum), Lombok 사용
+- 검증: cd backend && ./gradlew compileJava → BUILD SUCCESSFUL. bash scripts/test-all.sh(프런트+백엔드) 전체 통과 — 이 크론 환경에 Java 25(openjdk-25-jdk-headless apt 설치)와 frontend node_modules(pnpm install)가 없어 먼저 로컬 설치 후 실행함(레포 코드 파일은 변경 없음)
+- 커밋: [feat][backend] add Inquiry JPA entity (8bf7596b8dca9eb9185f937ad809727d8b9a1c6c), [chore][backlog] TASK-13.3 Done 처리(뒤이은 커밋) — 브랜치 task/TASK-13.3
+- PR: #21 (coralstay/simple_react_spring_web) — 사용자 직접 머지 대기, 이 세션에서 머지하지 않음
+- 다음 후보: TASK-13.4(InquiryRepository.java, TASK-13.3 완료로 이제 비블록), TASK-6.1/6.2(CaseStudyController/Service, TASK-5.2 PR #12 머지 후), TASK-10.x(InteriorChapter 계열) 등 — 이번 실행에서는 1개 leaf만 처리(불변식)
 ## 2026-09-11 (스케줄 실행) — TASK-12.1 구현
 - 실행 전 상태 확인: `git fetch origin` 결과 로컬/origin/main 모두 커밋 `21aa970d25411eab501647f2daf9ed68742a10f5`에서 최신, 뒤처짐 없음(실행 중 재확인 포함 2회 fetch, 변동 없음). `backlog`/`gh` CLI가 이 환경에 사전 설치돼 있지 않아 `npm install -g backlog.md@1.51.0`로 설치(주의: npm 패키지명 `backlog`는 동명이인 무관 패키지이므로 반드시 `backlog.md`를 설치해야 함), GitHub는 `mcp__github__*` 도구 사용.
 - `scripts/setup-dev-env.sh` 실행(`gitformat.taskPrefix=TASK` 설정 확인).
