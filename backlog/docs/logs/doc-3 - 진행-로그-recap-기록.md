@@ -35,7 +35,7 @@ updated_date: '2026-09-12 00:56'
 - 사용자 결정: 훅은 그대로 두고, main 머지는 사용자가 직접 수행. 실제로 사용자가 PR #1~4를 머지 커밋 방식(스쿼시 아님)으로 직접 머지 완료함
 - 로컬 main을 origin 기준으로 재정렬, plan-v6 커밋은 별도 브랜치(docs/plan-v6)로 옮겨 PR #5로 오픈(Claude가 main에 직접 push하지 않는다는 정책을 스스로도 지킴)
 
-## 진행 중인 이슈
+## 진행 중인 이슈 (이 시점 이후 상태는 아래 최신 항목 참고)
 - verify가 지적한 vitest exit-1 버그 수정 필요(frontend/package.json에 --passWithNoTests 적용 예정)
 - TASK-4.1/4.2 AC/Final Summary 보완 필요
 - 수정 후 verify 재검증 요청 예정, reviewer 세션 응답 대기 중
