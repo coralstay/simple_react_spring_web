@@ -3,7 +3,7 @@ id: doc-3
 title: 진행 로그 (recap 기록)
 type: other
 created_date: '2026-09-11 04:18'
-updated_date: '2026-09-11 14:44'
+updated_date: '2026-09-12 00:44'
 ---
 # 진행 로그 (recap 기록)
 
@@ -53,3 +53,18 @@ updated_date: '2026-09-11 14:44'
 - backlog: TASK-7.1 AC #1 체크, Final Summary 기록, 상태 Done.
 - PR: `task/TASK-7.1` 브랜치를 origin에 push 후 **PR #16** 오픈(머지는 하지 않음, 사용자 직접 머지 대기). PR 활동 구독(subscribe_pr_activity) 완료.
 - 이번 실행에서는 milestone 전환을 하지 않음(m-1은 여전히 다수 To Do 잔여) — 다음 크론 실행은 m-1의 다른 미구현 leaf task 중 하나를 이어서 처리.
+## 2026-09-12 (스케줄 실행) — TASK-13.1 구현
+- 실행 전 상태 확인: `git fetch origin` 결과 로컬/origin/main 모두 커밋 `21aa970d25411eab501647f2daf9ed68742a10f5`에서 최신, 뒤처짐 없음(실행 중 재확인 포함 2회 fetch, 변동 없음). 이 클라우드 세션 환경엔 `backlog`/`gh` CLI가 사전 설치돼 있지 않아 `npx --yes backlog.md@latest`로 대체 실행, GitHub는 `mcp__github__*` 도구 사용. 로컬 Java는 21(25 아님, plan-v1 기술 리스크에 이미 기재된 폴백 상황과 유사하나 이번 실행은 프런트 task라 무관).
+- `scripts/setup-dev-env.sh` 실행(`gitformat.taskPrefix=TASK` 설정 완료 확인). 단, 이 환경엔 git-format/claude-rails 훅 자체가 설치돼 있지 않음(`.git/hooks/`가 비어있고 `core.hooksPath` 미설정) — 커밋 메시지 컨벤션은 수동으로 동일하게 준수.
+- docs/plans/README.md 버전 표(v1~v12)는 실제 docs/plans/plan-v*.md 파일 목록과 일치(불일치 없음). 열린 PR #15가 아직 병합되지 않은 `plan-v13.md`를 추가 중임을 재확인(main엔 반영 안 됨, 이번 실행에서 건드리지 않음).
+- 열린 PR 13개 확인(전부 head/base가 현재 main `21aa970d25411eab501647f2daf9ed68742a10f5` 기준 미병합, mcp__github__list_pull_requests로 조회): #25(TASK-11.1 BridgeSection), #24(TASK-12.1 OperationsChapter), #23(TASK-10.3 CraftDetails), #22(TASK-10.2 MaterialsHandled), #21(TASK-13.3 Inquiry.java), #20(TASK-14.2 useScrollProgress), #19(TASK-14.1 useInView), #18(TASK-9.1 ConstructionChapter), #17(TASK-8.1 Intro), #16(TASK-7.1 Hero), #15(fix/TASK-13 fetch·pull 규칙, plan-v13), #14(fix/TASK-15.1 SecurityConfig 재작업), #12(TASK-5.2 더미 콘텐츠 JSON) — 전부 재구현 대상에서 제외.
+- `backlog milestone list --plain` 기준 m-0(M1) Done(1개 완료 마일스톤으로 collapse됨), 현재 마일스톤 m-1(M2 공개 케이스 스터디 페이지, 착수 시점 1/31 done).
+- 후보 leaf 검토: TASK-6.1/6.2(CaseStudyService가 참조할 JSON은 TASK-5.2/PR #12 미병합), TASK-10.1(하위 10.2~10.4 조합 컨테이너, 10.2/10.3이 각각 PR #22/#23으로 아직 미병합), TASK-13.2/13.4/13.5(Inquiry 엔티티/문의폼 체인, PR #21 미병합), TASK-14.3(useInView/useScrollProgress 의존 가능성, PR #19/#20 미병합) 계열은 선행 파일이 main에 없어 제외. TASK-10.4(LessonsCarriedForward.tsx)도 독립 구현 가능한 후보였으나 이전 TASK-10.3 recap이 명시적으로 다음 후보로 꼽은 TASK-13.1을 우선 선택.
+- 선택한 leaf task: **TASK-13.1 — Closing.tsx**(부모 TASK-13 "Closing 섹션 + 문의폼 + POST /api/inquiries", 마일스톤 m-1 확인 완료). TASK-13→TASK-15.1(SecurityConfig, 이미 Done) 의존성 충족. dependencies 없음(TASK-13.1 자체), 열린 PR 없음, `frontend/src/content/types.ts`의 `CaseStudyClosing`(이미 main에 존재)에만 의존 — 독립 구현 가능. ContactForm.tsx(TASK-13.2)는 별도 leaf task라 이번 범위에서 임포트하지 않음.
+- **구현은 plan-v1 불변식 #2를 준수해 서브에이전트에 위임**(agentId a89efad2f229de931, subagent_tokens 81982, tool_uses 18). 서브에이전트 프롬프트에 leaf task + 부모 task + 마일스톤(plan-v8 상위 2뎁스 확인) + Intro.tsx 선례 컨벤션을 포함해 전달, ContactForm 미구현/useInView 미병합 상태를 명시해 정적 컴포넌트로 스코프를 좁힘.
+- 구현: `frontend/src/sections/Closing.tsx` 신규 생성(파일 1개) — `CaseStudyClosing`(reflection/contactCta) optional props로 세 경험(건축·인테리어·운영)을 잇는 회고 문장과 예약/문의 CTA 앵커(href="#contact")를 렌더링. Intro.tsx/MaterialsHandled.tsx/CraftDetails.tsx와 동일한 inline CSSProperties/clamp()/wordBreak:keep-all/aria-label 컨벤션, 마지막 전환 지점 성격을 살려 다크 배경+화이트 필 CTA로 시각적 무게 부여.
+- 검증(서브에이전트 보고 + 오케스트레이터 재검증 모두 확인): `pnpm lint`(oxlint) exit 0, `pnpm test`(vitest --passWithNoTests) exit 0, `npx tsc -b --force` 결과 Closing.tsx 관련 오류 0건(vite.config.ts 기존 TS2769만 재현, Hero/Intro/MaterialsHandled/CraftDetails 선례와 동일한 leaf 범위 밖 기존 이슈).
+- 커밋: `2c6775b`([chore][backlog] TASK-13.1 in progress 표시), `4df4edbaf1c852a0704ef6e2ce788133ed8619a4`([feat][frontend] add Closing section component, 서브에이전트 작성 반영), `38a7be9`([chore][backlog] TASK-13.1 done 처리, Tokens-Used: 81982 / Tool-Calls: 18).
+- backlog: TASK-13.1 AC #1 체크, Final Summary 기록, 상태 Done.
+- PR: `task/TASK-13.1` 브랜치를 origin에 push 후 PR 오픈 예정(머지는 하지 않음, 사용자 직접 머지 대기). PR 활동 구독(subscribe_pr_activity) 예정.
+- 이번 실행에서는 마일스톤 전환을 하지 않음(m-1은 여전히 다수 To Do 잔여, 1개 task만 처리하는 정책 준수). 다음 크론 실행 후보(선행 미병합 의존 없음 확인됨): TASK-10.4(LessonsCarriedForward.tsx), TASK-14.3(ScrollReveal.tsx — 단 useInView/useScrollProgress PR #19/#20 병합 여부 재확인 필요). TASK-6.x/TASK-10.1/TASK-13.2·13.4·13.5는 각각 선행 PR(#12, #22+#23, #21) 병합 후 재검토 권장.
