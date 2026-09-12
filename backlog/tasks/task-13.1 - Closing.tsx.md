@@ -1,10 +1,10 @@
 ---
 id: TASK-13.1
 title: Closing.tsx
-status: To Do
+status: In Progress
 assignee: []
 created_date: '2026-09-10 15:31'
-updated_date: '2026-09-11 05:36'
+updated_date: '2026-09-12 00:41'
 labels: []
 milestone: m-1
 dependencies: []
