@@ -4,9 +4,8 @@ title: Virtual Threads 활성화
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:34'
-updated_date: '2026-09-11 05:36'
+updated_date: '2026-09-18 14:00'
 labels: []
-milestone: m-5
 dependencies: []
 modified_files:
   - backend/src/main/resources/application.yml

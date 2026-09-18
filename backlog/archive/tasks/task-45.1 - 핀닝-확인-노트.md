@@ -4,9 +4,8 @@ title: 핀닝 확인 노트
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:35'
-updated_date: '2026-09-11 05:35'
+updated_date: '2026-09-18 14:00'
 labels: []
-milestone: m-5
 dependencies: []
 modified_files:
   - docs/virtual-threads-pinning.md
