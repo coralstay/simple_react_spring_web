@@ -161,26 +161,20 @@ logger는 별도 worktree 없이 메인 저장소 체크아웃 경로에서 동�
 
 ## 5. TASK-55 / TASK-61과의 관계
 
-이 문서(TASK-62.1)가 다루는 "worktree 구조 재확인" 내용은 **TASK-55**(`docs/plans/plan-v17.md`
-작성 — worktree 재확인 + 마일스톤전환 PR 게이트 + M6/M7 순서)와 스코프가 겹친다. TASK-55는
-plan 문서 시리즈(`docs/plans/plan-vN.md`)에 규칙으로 못 박는 것이 목적이고, 이 문서는 그
-규칙들을 포함해 실제 운영 방법을 사람이 읽기 쉬운 형태로 한 곳에 모아 설명하는 것이 목적이다
-— 서로 다른 용도지만 "worktree 3개(implementer/reviewer/verify) + 각자 브랜치"라는 사실
-자체는 두 문서 모두에서 동일하게 다뤄야 하므로, plan-v17이 작성되면 이 문서와 내용이
-어긋나지 않는지 상호 확인이 필요하다.
+이 문서(TASK-62.1)가 다루는 "worktree 구조 재확인" 내용은 **TASK-55**(`docs/plans/plan-v18.md`
+작성 — worktree 재확인 + 마일스톤전환 PR 게이트. 원래 plan-v17로 계획됐으나 TASK-67에서
+그 번호를 `/clear` 타이밍 가이드라인 복구에 먼저 쓰면서 v18로 재배정됨)와 스코프가 겹친다.
+TASK-55는 plan 문서 시리즈(`docs/plans/plan-vN.md`)에 규칙으로 못 박는 것이 목적이고, 이
+문서는 그 규칙들을 포함해 실제 운영 방법을 사람이 읽기 쉬운 형태로 한 곳에 모아 설명하는
+것이 목적이다 — 서로 다른 용도지만 "worktree 3개(implementer/reviewer/verify) + 각자
+브랜치"라는 사실 자체는 두 문서 모두에서 동일하게 다뤄야 하므로, plan-v18이 작성되면 이
+문서와 내용이 어긋나지 않는지 상호 확인이 필요하다.
 
-**TASK-61의 현재 AC #1은 이번에 확정된 logger 역할과 어긋나므로 수정이 필요하다.** TASK-61의
-AC #1 원문은 다음과 같다:
+**TASK-61의 AC는 이번에 확정된 logger 역할에 맞게 이미 수정 완료됨(TASK-67에서 반영).**
+logger는 implementer/reviewer/verify와 달리 "진행 로그 (logger)"라는 이름의 **backlog doc**을
+갖지 않는다 — logger가 다루는 건 요약·판단이 개입되지 않은 raw 원문이고, 이건 backlog
+doc(구조화된 판단/결론 문서)의 성격과 맞지 않기 때문이다. logger의 출력물은 backlog doc이
+아니라 **git으로 추적되는 평문 로그 파일(`logs/raw-session-log.md`)**이다(위 2번 섹션 logger
+항목 참고). TASK-61의 AC는 "backlog doc 3개(진행 로그 implementer/reviewer/verify) 신규 생성
 
-> `#1 backlog doc 4개(진행 로그 implementer/reviewer/verify/logger) 신규 생성`
-
-이 문구는 logger도 implementer/reviewer/verify와 동일하게 "진행 로그 (logger)"라는 이름의
-**backlog doc**을 하나 갖는다는 전제를 깔고 있다. 하지만 이번에 사용자가 명확히 한 logger
-역할은 그렇지 않다 — logger가 다루는 건 요약·판단이 개입되지 않은 raw 원문이고, 이건
-backlog doc(구조화된 판단/결론 문서)의 성격과 맞지 않는다. 그래서 logger의 출력물은
-backlog doc이 아니라 **git으로 추적되는 평문 로그 파일(`logs/raw-session-log.md`)**로
-정하기로 확정했다(위 2번 섹션 logger 항목 참고). 즉 TASK-61을 실제로 승격/실행하는 시점에는
-AC #1을 다음과 같이 고쳐야 한다: "backlog doc 3개(진행 로그 implementer/reviewer/verify)
-신규 생성 + logger는 `logs/raw-session-log.md` 신규 생성(git 추적, doc 아님)". 이 문서에서는
-이 불일치를 명시적으로 남겨 두는 것으로 그치고, TASK-61 자체의 AC 수정은 TASK-61이 실행될
-때 반영한다.
+- logger는 `logs/raw-session-log.md` 신규 생성(git 추적, doc 아님)"으로 반영되어 있다.
