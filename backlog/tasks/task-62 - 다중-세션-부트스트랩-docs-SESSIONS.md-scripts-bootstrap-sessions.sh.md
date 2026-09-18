@@ -4,7 +4,7 @@ title: '다중 세션 부트스트랩: docs/SESSIONS.md + scripts/bootstrap-sess
 status: To Do
 assignee: []
 created_date: '2026-09-12 06:33'
-updated_date: '2026-09-12 10:42'
+updated_date: '2026-09-12 06:37'
 labels:
   - governance
   - docs
@@ -13,8 +13,6 @@ dependencies: []
 references:
   - TASK-55
   - TASK-61
-documentation:
-  - doc-10
 ---
 
 ## Description
