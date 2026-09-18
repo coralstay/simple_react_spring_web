@@ -4,9 +4,8 @@ title: k6 벤치마크 스크립트
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:35'
-updated_date: '2026-09-11 05:35'
+updated_date: '2026-09-18 14:00'
 labels: []
-milestone: m-5
 dependencies: []
 modified_files:
   - scripts/k6-summary-benchmark.js

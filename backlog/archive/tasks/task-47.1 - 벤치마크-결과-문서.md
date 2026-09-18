@@ -4,9 +4,8 @@ title: 벤치마크 결과 문서
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:35'
-updated_date: '2026-09-11 05:35'
+updated_date: '2026-09-18 14:00'
 labels: []
-milestone: m-5
 dependencies: []
 modified_files:
   - docs/virtual-threads-benchmark.md

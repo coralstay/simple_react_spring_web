@@ -4,9 +4,8 @@ title: k6 벤치마크(ON/OFF 비교)
 status: To Do
 assignee: []
 created_date: '2026-09-10 15:21'
-updated_date: '2026-09-10 23:10'
+updated_date: '2026-09-18 14:00'
 labels: []
-milestone: m-5
 dependencies: []
 ---
 
