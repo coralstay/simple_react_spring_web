@@ -1,10 +1,10 @@
 ---
 id: TASK-66
 title: 프런트엔드 Vite→Next.js 전환
-status: In Progress
+status: To Do
 assignee: []
 created_date: '2026-09-18 14:47'
-updated_date: '2026-09-18 14:50'
+updated_date: '2026-09-18 14:51'
 labels:
   - frontend
   - architecture
