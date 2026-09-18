@@ -1,10 +1,10 @@
 ---
 id: TASK-62
 title: '다중 세션 부트스트랩: docs/SESSIONS.md + scripts/bootstrap-sessions.sh'
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-09-12 06:33'
-updated_date: '2026-09-12 06:37'
+updated_date: '2026-09-18 14:31'
 labels:
   - governance
   - docs
@@ -31,7 +31,7 @@ references:
 - claude <prompt>는 그 프롬프트를 첫 메시지로 넣은 대화형 세션을 바로 시작한다(-p와 달리 인터랙티브 유지) — 이걸로 /loop까지 자동 입력 가능.
 - 터미널 자동화 도구로 iTerm2(설치 확인됨)를 osascript로 구동한다.
 - 로컬 /loop는 터미널에 묶여 있어 컴퓨터를 끄면 함께 끊긴다(plan-v1) — 이 스크립트는 "재부팅 후 다시 켤 때 한 번에 복원"하는 것이지, 컴퓨터가 꺼진 동안에도 돌아가게 하는 게 아니다(그건 별개로 이미 계획된 클라우드 크론의 몫). 이 차이를 문서에 명시한다.
-- TASK-42.1("README.md 작성")이 나중에 채용 담당자용 루트 README.md를 작성할 예정이므로, 이번에 만드는 "세션 운영 문서"를 루트 README.md에 쓰면 나중에 TASK-42.1이 덮어쓰며 충돌한다 → docs/SESSIONS.md로 분리해서 만든다.
+- TASK-42.1("README.md 작성")이 나중에 프로젝트 소개용 루트 README.md를 작성할 예정이므로, 이번에 만드는 "세션 운영 문서"를 루트 README.md에 쓰면 나중에 TASK-42.1이 덮어쓰며 충돌한다 → docs/SESSIONS.md로 분리해서 만든다.
 - backlog/ 하위 구조(조사 결과): tasks/(176개, TASK-N/TASK-N.M 계층), milestones/(m-0~m-7, M9가 최상위 우선순위로 M2 재개를 막고 있음), drafts/(현재 draft-52 — AWS apply 등 수동승인 전용, 절대 자동 착수 금지), archive/drafts/(승격된 52개 원본 보관), docs/reviews/(doc-2,4,5,6,7,8 — 마일스톤별 리뷰/검증 결과), docs/logs/(doc-3 — 현재는 4개 역할이 공유하는 recap, TASK-61에서 역할별로 분리 예정), decisions/·completed/(미사용 — 의사결정은 대신 docs/plans/plan-vN.md에 기록), config.yml(프로젝트명/task_prefix만 커스텀, 나머지 기본값).
 
 ## 산출물
@@ -63,7 +63,7 @@ references:
 
 ## 다음 단계
 
-backlog draft promote로 task 승격 → 승격 직후 TASK-55/TASK-61을 --add-ref/--doc으로 연결 → 실행 시점에 "leaf task = 파일 1개" 불변식에 따라 docs/SESSIONS.md, scripts/bootstrap-sessions.sh, 프롬프트 파일 4개를 각각 별도 leaf task로 쪼개고 각각 서브에이전트에 위임해서 구현 → 작은 단위 커밋.
+backlog draft promote로 task 승격 → 승격 직후 TASK-55/TASK-61을 --add-ref/--doc으로 연결 → 실행 시점에 "leaf task = 파일 1개" 원칙에 따라 docs/SESSIONS.md, scripts/bootstrap-sessions.sh, 프롬프트 파일 4개를 각각 별도 leaf task로 쪼개고 각각 서브에이전트에 위임해서 구현 → 작은 단위 커밋.
 
 ## 검증 방법
 
@@ -77,3 +77,9 @@ backlog draft promote로 task 승격 → 승격 직후 TASK-55/TASK-61을 --add-
 - [ ] #2 scripts/session-prompts/ 아래 4개(implementer,reviewer,verify,logger) 역할별 프롬프트 파일이 존재한다
 - [ ] #3 scripts/bootstrap-sessions.sh가 존재하고 bash -n으로 문법 검사를 통과한다
 <!-- AC:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+6개 자식 task(62.1~62.6) 전부 Done, AC 전부 체크됨(합계 21/21). 산출물: docs/SESSIONS.md, scripts/session-prompts/{implementer,reviewer,verify,logger}.md, scripts/bootstrap-sessions.sh — 전부 origin/main에 병합됨(PR #32~#37). 부모 task 설명에서 '채용 담당자용' 문구는 TASK-64(문맥 전환)에서 '프로젝트 소개용'으로 수정.
+<!-- SECTION:FINAL_SUMMARY:END -->

@@ -5,7 +5,7 @@ status: Done
 assignee:
   - '@claude'
 created_date: '2026-09-12 06:37'
-updated_date: '2026-09-12 10:46'
+updated_date: '2026-09-18 14:30'
 labels: []
 dependencies: []
 references:
@@ -19,7 +19,7 @@ parent_task_id: TASK-62
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-다중 세션(implementer/reviewer/verify/logger) 운영 방법을 설명하는 신규 문서. TASK-62 부모 설명의 '산출물 1' 섹션 전체를 그대로 반영한다. 루트 README.md가 아니라 docs/SESSIONS.md로 만드는 이유: TASK-42.1이 나중에 채용용 루트 README.md를 작성할 예정이라 충돌 방지.
+다중 세션(implementer/reviewer/verify/logger) 운영 방법을 설명하는 신규 문서. TASK-62 부모 설명의 '산출물 1' 섹션 전체를 그대로 반영한다. 루트 README.md가 아니라 docs/SESSIONS.md로 만드는 이유: TASK-42.1이 나중에 프로젝트 소개용 루트 README.md를 작성할 예정이라 충돌 방지.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
