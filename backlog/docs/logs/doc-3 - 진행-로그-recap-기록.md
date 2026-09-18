@@ -3,7 +3,7 @@ id: doc-3
 title: 진행 로그 (recap 기록)
 type: other
 created_date: '2026-09-11 04:18'
-updated_date: '2026-09-12 05:43'
+updated_date: '2026-09-18 15:43'
 ---
 # 진행 로그 (recap 기록)
 
@@ -150,3 +150,15 @@ updated_date: '2026-09-12 05:43'
 - backlog: TASK-10.4 AC #1 체크, Implementation Plan/Notes/Final Summary 기록, 상태 Done.
 - PR: `task/TASK-10.4` 브랜치를 origin에 push 후 PR 오픈 예정(머지는 하지 않음, 사용자 직접 머지 대기). PR 활동 구독(subscribe_pr_activity) 예정.
 - 이번 실행에서도 마일스톤 "전환"은 하지 않음(m-1은 여전히 다수 To Do 잔여, 1개 leaf task만 처리하는 정책 준수). 다음 크론 실행 후보(선행 미병합 의존 없음 확인됨): TASK-14.3(ScrollReveal.tsx), TASK-6.1/6.2(CaseStudyController/Service), TASK-13.2/13.4/13.5(ContactForm/InquiryRepository/InquiryController), TASK-10.1(InteriorChapter.tsx — 이제 10.2/10.3/10.4 모두 Done이라 조립 가능).
+
+## 2026-09-18 (스케줄 실행) — 하드스톱 확인 후 TASK-10.1 구현
+- **하드스톱 조건 우선 확인**(이번 스케줄 프롬프트의 필수 선행 절차): (1) `git fetch origin main` 후 `backend/src/main/java/com/portfolio/auth/SecurityConfig.java`를 origin/main(HEAD `f05786a`, PR #45 머지 반영)에서 직접 read — `authorize.requestMatchers(GET /api/case-study | POST /api/inquiries | /error).permitAll()` + `.anyRequest().authenticated()` 확인, `.anyRequest().permitAll()` 아님. PR #14(`fix/TASK-15.1-securityconfig`, head `8661d1d`)가 merge commit `3e41cfe`로 main에 merge되어 있음을 `git log --all --grep`으로 재확인. (2) `backlog/docs/reviews/doc-9` 본문을 직접 read — TASK-15.1/TASK-1.6/TASK-4.3 세 건 모두 "승인"/"reviewer 게이트 닫음 — PR #14 머지되면 M2 계속 진행 가능"이라는 명시적 PASS 결론 확인(doc-8도 PR #14 자체의 기능 PASS를 별도로 확인). 두 조건 모두 충족 → 하드스톱 해제, 정상 워크플로 재개.
+- 절차: `git fetch origin main`(로컬이 이미 origin/main과 동일, 뒤처짐 없음, working tree clean) 확인 → 서브에이전트로 `mcp__github__list_pull_requests(state=open)` 조회 결과 열린 PR 1개(#43, TASK-6.2 CaseStudyService.java, 미병합 — 재구현 대상 아님) → `backlog/tasks/*.md` 프론트매터 직접 스캔(backlog CLI 미설치라 `npx --yes backlog.md@latest` 사용 확정 전 단계)으로 마일스톤/상태 enumerate → milestone 파일 기준 m-0(M1) PASS 완료(doc-6), m-1(M2)이 doc-9 이후 아직 어떤 M2 완료 리뷰/verify 문서도 없어 현재 마일스톤으로 확정.
+- 후보 leaf 검토: TASK-6.1(CaseStudyController.java, PR #43 미병합인 TASK-6.2/Service에 사실상 의존할 가능성이 높아 선행 병합 전까지 보류), TASK-13.2(ContactForm.tsx)/TASK-13.5(InquiryController.java)/TASK-14.3(ScrollReveal.tsx)도 모두 dependencies 없고 열린 PR 없어 후보 가능했으나, 직전 recap(TASK-10.4 항목)이 "10.2/10.3/10.4 모두 Done이라 조립 가능"으로 명시적으로 꼽은 **TASK-10.1 — InteriorChapter.tsx**를 선택(부모 TASK-10 "인테리어 현장 경험 챕터 컴포넌트(최다 분량)", 마일스톤 m-1 확인 완료, plan-v8 상위 2뎁스 확인 규칙 준수). dependencies 없음, 열린 PR 없음, `content/types.ts`의 `InteriorChapter`/`MaterialHandled`/`CraftDetail`/`LessonCarriedForward`(이미 main에 존재)와 이미 Done인 `MaterialsHandled.tsx`/`CraftDetails.tsx`/`LessonsCarriedForward.tsx`(TASK-10.2/10.3/10.4)에만 의존 — 독립 구현 가능.
+- 참고: plan-v16(2026-09-18, 오늘 자 사용자 지시)로 plan-v1.md의 "실행 불변식(leaf=파일 1개, 서브에이전트 필수)" 섹션이 폐지됨. 이번 실행은 이를 반영해 오케스트레이터가 직접 구현(서브에이전트 위임 생략), 단 관행대로 파일 스코프는 task의 `modified_files` 1건으로 유지.
+- 구현: `frontend/src/sections/chapters/InteriorChapter.tsx` 신규 생성(파일 1개) — 공통 헤더(title/narrative) 아래 이미 완료된 세 하위 컴포넌트(MaterialsHandled/CraftDetails/LessonsCarriedForward)를 `chapter.materialsHandled`/`chapter.craftDetails`/`chapter.lessonsCarriedForward`로 각각 조합하는 컨테이너. ConstructionChapter.tsx/OperationsChapter.tsx와 동일한 inline CSSProperties/subsectionStyle 래퍼 컨벤션(각 하위 컴포넌트가 자체 h3/grid를 렌더링하므로 컨테이너는 subsectionStyle div로만 감쌈, OperationsChapter의 다중 서브섹션 래핑과 동일 패턴). 아직 어떤 페이지에도 임포트되지 않음(ConstructionChapter/OperationsChapter/BridgeSection도 동일하게 미와이어링 상태 — 페이지 조립은 별도 task 범위로 판단).
+- 검증: `pnpm lint`(oxlint) exit 0(기존 `useInView.ts`의 무관한 `set-state-in-effect` 경고만 존재), 임시(커밋하지 않음) vitest+RTL 스펙으로 헤더/narrative/세 서브섹션 텍스트 렌더링 확인 후 삭제, `npx tsc -b --force` exit 0(오류 0건).
+- 커밋(모두 브랜치 `task/TASK-10.1`, 베이스 `origin/main f05786a`): `bba1929`([chore][backlog] TASK-10.1 in progress 표시), `0e0e124`([feat][frontend] add InteriorChapter container composing sub-sections), `ab91501`([chore][backlog] TASK-10.1 Done 처리 — 오케스트레이터 직접 구현이라 Tokens-Used/Tool-Calls 트레일러 생략).
+- backlog: TASK-10.1 AC #1 체크, Final Summary 기록, 상태 Done.
+- PR: `task/TASK-10.1` 브랜치를 origin에 push 후 PR 오픈 예정(머지는 하지 않음, 사용자 직접 머지 대기). PR 활동 구독(subscribe_pr_activity) 예정.
+- 이번 실행에서도 마일스톤 "전환"은 하지 않음(m-1은 여전히 다수 To Do 잔여, 1개 leaf task만 처리하는 정책 준수). 다음 크론 실행 후보(선행 미병합 의존 없음 확인됨): TASK-13.2(ContactForm.tsx), TASK-13.5(InquiryController.java), TASK-14.3(ScrollReveal.tsx). TASK-6.1(CaseStudyController.java)은 PR #43(TASK-6.2 CaseStudyService.java) 병합 후 재검토 권장.

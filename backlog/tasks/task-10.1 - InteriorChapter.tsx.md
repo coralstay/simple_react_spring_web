@@ -4,10 +4,12 @@ title: InteriorChapter.tsx
 status: Done
 assignee: []
 created_date: '2026-09-10 15:31'
-updated_date: '2026-09-18 15:43'
+updated_date: '2026-09-18 15:45'
 labels: []
 milestone: m-1
 dependencies: []
+documentation:
+  - doc-3
 modified_files:
   - frontend/src/sections/chapters/InteriorChapter.tsx
 parent_task_id: TASK-10
