@@ -1,7 +1,7 @@
 ---
 id: TASK-66
 title: 프런트엔드 Vite→Next.js 전환
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-09-18 14:47'
 updated_date: '2026-09-18 14:51'
@@ -42,3 +42,15 @@ M9(워크플로 거버넌스, m-8)를 먼저 처리하기로 사용자가 별도
 전환)을 M9보다 먼저/나중에 할지는 아직 명시적으로 정해지지 않음. M2가 이미 Vite 기준으로
 15/31 진행된 상태라, 더 진행하기 전에 전환하는 편이 재작업을 줄이지만 이건 사용자 확인 필요.
 <!-- SECTION:DESCRIPTION:END -->
+
+## Acceptance Criteria
+<!-- AC:BEGIN -->
+- [x] #1 Next.js 렌더링 모드 결정(정적 export vs Node 서버) — 사용자 확인 완료, 정적 export로 확정
+- [x] #2 영향 범위 조사 기록(기존 Vite 산출물, M2 완료 컴포넌트, TASK-54/M8, plan-v1.md) 및 다음 단계(leaf task 분해 항목) 문서화
+<!-- AC:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+Vite→Next.js 전환 결정 기록 완료: 정적 export 모드로 확정(사용자 확인, 기존 Spring Boot 단일 jar 배포 아키텍처 유지). 영향 범위(M2 완료 컴포넌트 포팅 필요, TASK-54/M8 archive 대상, plan-v1.md 갱신 필요) 문서화. 실제 코드 마이그레이션은 이 task의 범위 밖 — 착수 시점에 파일 단위 leaf task(TASK-66.1 등)로 별도 분해해서 진행. 커밋 aad98a7 (task/TASK-66).
+<!-- SECTION:FINAL_SUMMARY:END -->
